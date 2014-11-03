@@ -9,4 +9,12 @@
 /vendor/
 /bin/
 /composer.phar
-.idea
+.idea/
+/web/css/
+/web/js/
+/web/fonts/
+/web/img/
+/node_modules/
+/bower_components/
+/.sass-cache/
+
