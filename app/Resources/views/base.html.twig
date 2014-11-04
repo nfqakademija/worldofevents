@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}World of Events{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,7 +25,11 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-{% block body %}{% endblock %}
+<div class="container">
+    {% block body %}{% endblock %}
+    {% block footer %}<footer><p>&copy; Word of Events 2014</p></footer>{% endblock %}
+</div>
+
 
 {% block javascripts %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
