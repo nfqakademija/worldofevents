@@ -1,0 +1,3 @@
+woe_web_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: WoeWebBundle:Default:index }

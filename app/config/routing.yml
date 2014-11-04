@@ -1,0 +1,4 @@
+woe_web:
+    resource: "@WoeWebBundle/Resources/config/routing.yml"
+    prefix:   /
+
