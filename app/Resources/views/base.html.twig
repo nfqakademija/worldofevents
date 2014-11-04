@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,8 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-
+	
+	<!-- StyleSheets (compiled) -->
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {% endblock %}
@@ -20,17 +21,25 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <div class="container">
-    {% block body %}{% endblock %}
-    {% block footer %}<footer><p>&copy; Word of Events 2014</p></footer>{% endblock %}
+
+	<!-- Body -->
+    {% block body %}
+    {% endblock %}
+	
+	<!-- Footer -->
+    {% block footer %}
+	<footer><p>&copy; World of Events 2014</p></footer>
+    {% endblock %}
 </div>
 
-
+	<!-- JavaScripts -->
 {% block javascripts %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
