@@ -1,3 +1,7 @@
+woe_event:
+    resource: "@WoeEventBundle/Resources/config/routing.yml"
+    prefix:   /
+
 woe_web:
     resource: "@WoeWebBundle/Resources/config/routing.yml"
     prefix:   /
