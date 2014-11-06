@@ -2,6 +2,7 @@
 
 namespace Woe\EventBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,6 +68,17 @@ class Event
      * @ORM\JoinColumn(name="organizer_id", referencedColumnName="id")
      */
     private $organizer;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Woe\FilterBundle\Entity\Tag", inversedBy="events")
+     * @ORM\JoinTable(name="events_tags")
+     */
+    private $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * Get id

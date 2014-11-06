@@ -34,11 +34,16 @@ class Tag
      */
     private $keywords_norm;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Woe\EventBundle\Entity\Event", mappedBy="tags")
+     */
+    private $events;
+
     public function __construct()
     {
         $this->keywords_norm = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
-
 
     /**
      * Get id
