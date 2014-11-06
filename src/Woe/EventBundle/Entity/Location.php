@@ -55,6 +55,12 @@ class Location
      */
     private $events;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="location")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     */
+    private $city;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
