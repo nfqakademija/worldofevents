@@ -6,3 +6,7 @@ woe_web:
     resource: "@WoeWebBundle/Resources/config/routing.yml"
     prefix:   /
 
+woe_filter:
+    resource: "@WoeFilterBundle/Resources/config/routing.yml"
+    prefix:   /
+

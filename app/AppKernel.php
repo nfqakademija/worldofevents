@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Woe\WebBundle\WoeWebBundle(),
             new Woe\EventBundle\WoeEventBundle(),
+            new Woe\FilterBundle\WoeFilterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
