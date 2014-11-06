@@ -66,4 +66,27 @@ class Keyword
     {
         return $this->name;
     }
+
+    /**
+     * Set keyword_norm
+     *
+     * @param \Woe\FilterBundle\Entity\KeywordNorm $keywordNorm
+     * @return Keyword
+     */
+    public function setKeywordNorm(\Woe\FilterBundle\Entity\KeywordNorm $keywordNorm = null)
+    {
+        $this->keyword_norm = $keywordNorm;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword_norm
+     *
+     * @return \Woe\FilterBundle\Entity\KeywordNorm 
+     */
+    public function getKeywordNorm()
+    {
+        return $this->keyword_norm;
+    }
 }

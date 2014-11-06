@@ -101,4 +101,37 @@ class Organizer
     {
         return $this->url;
     }
+
+    /**
+     * Add events
+     *
+     * @param \Woe\EventBundle\Entity\Event $events
+     * @return Organizer
+     */
+    public function addEvent(\Woe\EventBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \Woe\EventBundle\Entity\Event $events
+     */
+    public function removeEvent(\Woe\EventBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
 }

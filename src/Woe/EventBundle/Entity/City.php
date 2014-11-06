@@ -72,4 +72,37 @@ class City
     {
         return $this->name;
     }
+
+    /**
+     * Add locations
+     *
+     * @param \Woe\EventBundle\Entity\Location $locations
+     * @return City
+     */
+    public function addLocation(\Woe\EventBundle\Entity\Location $locations)
+    {
+        $this->locations[] = $locations;
+
+        return $this;
+    }
+
+    /**
+     * Remove locations
+     *
+     * @param \Woe\EventBundle\Entity\Location $locations
+     */
+    public function removeLocation(\Woe\EventBundle\Entity\Location $locations)
+    {
+        $this->locations->removeElement($locations);
+    }
+
+    /**
+     * Get locations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLocations()
+    {
+        return $this->locations;
+    }
 }

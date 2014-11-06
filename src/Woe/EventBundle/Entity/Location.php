@@ -167,4 +167,60 @@ class Location
     {
         return $this->longitude;
     }
+
+    /**
+     * Add events
+     *
+     * @param \Woe\EventBundle\Entity\Event $events
+     * @return Location
+     */
+    public function addEvent(\Woe\EventBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \Woe\EventBundle\Entity\Event $events
+     */
+    public function removeEvent(\Woe\EventBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \Woe\EventBundle\Entity\City $city
+     * @return Location
+     */
+    public function setCity(\Woe\EventBundle\Entity\City $city = null)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \Woe\EventBundle\Entity\City 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
 }

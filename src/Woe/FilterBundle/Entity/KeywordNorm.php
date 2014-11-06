@@ -78,4 +78,60 @@ class KeywordNorm
     {
         return $this->name;
     }
+
+    /**
+     * Set keyword
+     *
+     * @param \Woe\FilterBundle\Entity\Keyword $keyword
+     * @return KeywordNorm
+     */
+    public function setKeyword(\Woe\FilterBundle\Entity\Keyword $keyword = null)
+    {
+        $this->keyword = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Get keyword
+     *
+     * @return \Woe\FilterBundle\Entity\Keyword 
+     */
+    public function getKeyword()
+    {
+        return $this->keyword;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param \Woe\FilterBundle\Entity\Tag $tags
+     * @return KeywordNorm
+     */
+    public function addTag(\Woe\FilterBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param \Woe\FilterBundle\Entity\Tag $tags
+     */
+    public function removeTag(\Woe\FilterBundle\Entity\Tag $tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 }

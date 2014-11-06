@@ -204,4 +204,83 @@ class Event
     {
         return $this->information;
     }
+
+    /**
+     * Set location
+     *
+     * @param \Woe\EventBundle\Entity\Location $location
+     * @return Event
+     */
+    public function setLocation(\Woe\EventBundle\Entity\Location $location = null)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return \Woe\EventBundle\Entity\Location 
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set organizer
+     *
+     * @param \Woe\EventBundle\Entity\Organizer $organizer
+     * @return Event
+     */
+    public function setOrganizer(\Woe\EventBundle\Entity\Organizer $organizer = null)
+    {
+        $this->organizer = $organizer;
+
+        return $this;
+    }
+
+    /**
+     * Get organizer
+     *
+     * @return \Woe\EventBundle\Entity\Organizer 
+     */
+    public function getOrganizer()
+    {
+        return $this->organizer;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param \Woe\FilterBundle\Entity\Tag $tags
+     * @return Event
+     */
+    public function addTag(\Woe\FilterBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param \Woe\FilterBundle\Entity\Tag $tags
+     */
+    public function removeTag(\Woe\FilterBundle\Entity\Tag $tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 }
