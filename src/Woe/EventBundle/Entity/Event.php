@@ -63,6 +63,12 @@ class Event
     private $location;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Organizer", inversedBy="events")
+     * @ORM\JoinColumn(name="organizer_id", referencedColumnName="id")
+     */
+    private $organizer;
+
+    /**
      * Get id
      *
      * @return integer 

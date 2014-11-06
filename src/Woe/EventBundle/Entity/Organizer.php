@@ -2,6 +2,7 @@
 
 namespace Woe\EventBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,15 @@ class Organizer
      */
     private $url;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="organizer")
+     */
+    private $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
 
     /**
      * Get id
