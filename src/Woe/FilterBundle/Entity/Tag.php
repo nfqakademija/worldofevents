@@ -2,6 +2,7 @@
 
 namespace Woe\FilterBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,16 @@ class Tag
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="KeywordNorm", mappedBy="tags")
+     */
+    private $keywords_norm;
+
+    public function __construct()
+    {
+        $this->keywords_norm = new ArrayCollection();
+    }
 
 
     /**
