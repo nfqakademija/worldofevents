@@ -28,6 +28,12 @@ class KeywordNorm
      */
     private $name;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Keyword", inversedBy="keyword_norm")
+     * @ORM\JoinColumn(name="keyword_id", referencedColumnName="id")
+     */
+    private $keyword;
+
 
     /**
      * Get id

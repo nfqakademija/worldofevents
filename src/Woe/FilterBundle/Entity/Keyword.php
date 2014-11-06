@@ -28,6 +28,11 @@ class Keyword
      */
     private $name;
 
+    /**
+     * @ORM\OneToOne(targetEntity="KeywordNorm", mappedBy="keyword")
+     */
+    private $keyword_norm;
+
 
     /**
      * Get id
