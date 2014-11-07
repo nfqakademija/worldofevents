@@ -1,6 +1,10 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-compass";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "header";
+@import "footer";
+@import "body";
 
 body {
-  padding: 50px 0px 20px 0px;
+  padding: 0px;
+  margin: 0px;
 }
