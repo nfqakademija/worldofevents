@@ -84,7 +84,7 @@ class Tag
      * @param \Woe\FilterBundle\Entity\Keyword $keywords
      * @return Tag
      */
-    public function addKeywordsNorm(\Woe\FilterBundle\Entity\Keyword $keywords)
+    public function addKeyword(\Woe\FilterBundle\Entity\Keyword $keywords)
     {
         $this->keywords[] = $keywords;
 
@@ -96,7 +96,7 @@ class Tag
      *
      * @param \Woe\FilterBundle\Entity\Keyword $keywords
      */
-    public function removeKeywordsNorm(\Woe\FilterBundle\Entity\Keyword $keywords)
+    public function removeKeyword(\Woe\FilterBundle\Entity\Keyword $keywords)
     {
         $this->keywords->removeElement($keywords);
     }
