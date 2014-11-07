@@ -23,6 +23,27 @@ class Event
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="source_url", type="string", length=255)
+     */
+    private $source_url;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
@@ -68,6 +89,12 @@ class Event
      * @ORM\JoinColumn(name="organizer_id", referencedColumnName="id")
      */
     private $organizer;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Distributor", inversedBy="events")
+     * @ORM\JoinColumn(name="distributor_id", referencedColumnName="id")
+     */
+    private $distributor;
 
     /**
      * @ORM\ManyToMany(targetEntity="Woe\FilterBundle\Entity\Tag", inversedBy="events")
@@ -282,5 +309,97 @@ class Event
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Event
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Event
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set distributor
+     *
+     * @param \Woe\EventBundle\Entity\Distributor $distributor
+     * @return Event
+     */
+    public function setDistributor(\Woe\EventBundle\Entity\Distributor $distributor = null)
+    {
+        $this->distributor = $distributor;
+
+        return $this;
+    }
+
+    /**
+     * Get distributor
+     *
+     * @return \Woe\EventBundle\Entity\Distributor 
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * Set source_url
+     *
+     * @param string $sourceUrl
+     * @return Event
+     */
+    public function setSourceUrl($sourceUrl)
+    {
+        $this->source_url = $sourceUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get source_url
+     *
+     * @return string 
+     */
+    public function getSourceUrl()
+    {
+        return $this->source_url;
     }
 }
