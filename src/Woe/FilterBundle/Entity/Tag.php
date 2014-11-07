@@ -30,9 +30,9 @@ class Tag
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="KeywordNorm", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="Keyword", mappedBy="tags")
      */
-    private $keywords_norm;
+    private $keywords;
 
     /**
      * @ORM\ManyToMany(targetEntity="Woe\EventBundle\Entity\Event", mappedBy="tags")
@@ -41,7 +41,7 @@ class Tag
 
     public function __construct()
     {
-        $this->keywords_norm = new ArrayCollection();
+        $this->keywords = new ArrayCollection();
         $this->events = new ArrayCollection();
     }
 
@@ -79,36 +79,36 @@ class Tag
     }
 
     /**
-     * Add keywords_norm
+     * Add keywords
      *
-     * @param \Woe\FilterBundle\Entity\KeywordNorm $keywordsNorm
+     * @param \Woe\FilterBundle\Entity\Keyword $keywords
      * @return Tag
      */
-    public function addKeywordsNorm(\Woe\FilterBundle\Entity\KeywordNorm $keywordsNorm)
+    public function addKeywordsNorm(\Woe\FilterBundle\Entity\Keyword $keywords)
     {
-        $this->keywords_norm[] = $keywordsNorm;
+        $this->keywords[] = $keywords;
 
         return $this;
     }
 
     /**
-     * Remove keywords_norm
+     * Remove keywords
      *
-     * @param \Woe\FilterBundle\Entity\KeywordNorm $keywordsNorm
+     * @param \Woe\FilterBundle\Entity\Keyword $keywords
      */
-    public function removeKeywordsNorm(\Woe\FilterBundle\Entity\KeywordNorm $keywordsNorm)
+    public function removeKeywordsNorm(\Woe\FilterBundle\Entity\Keyword $keywords)
     {
-        $this->keywords_norm->removeElement($keywordsNorm);
+        $this->keywords->removeElement($keywords);
     }
 
     /**
-     * Get keywords_norm
+     * Get keywords
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getKeywordsNorm()
+    public function getKeywords()
     {
-        return $this->keywords_norm;
+        return $this->keywords;
     }
 
     /**

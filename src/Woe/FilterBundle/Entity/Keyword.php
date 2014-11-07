@@ -2,6 +2,7 @@
 
 namespace Woe\FilterBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,10 +30,15 @@ class Keyword
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="KeywordNorm", mappedBy="keyword")
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="keywords")
+     * @ORM\JoinTable(name="keywords_tags")
      */
-    private $keyword_norm;
+    private $tags;
 
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -68,25 +74,35 @@ class Keyword
     }
 
     /**
-     * Set keyword_norm
+     * Add tags
      *
-     * @param \Woe\FilterBundle\Entity\KeywordNorm $keywordNorm
+     * @param \Woe\FilterBundle\Entity\Tag $tags
      * @return Keyword
      */
-    public function setKeywordNorm(\Woe\FilterBundle\Entity\KeywordNorm $keywordNorm = null)
+    public function addTag(\Woe\FilterBundle\Entity\Tag $tags)
     {
-        $this->keyword_norm = $keywordNorm;
+        $this->tags[] = $tags;
 
         return $this;
     }
 
     /**
-     * Get keyword_norm
+     * Remove tags
      *
-     * @return \Woe\FilterBundle\Entity\KeywordNorm 
+     * @param \Woe\FilterBundle\Entity\Tag $tags
      */
-    public function getKeywordNorm()
+    public function removeTag(\Woe\FilterBundle\Entity\Tag $tags)
     {
-        return $this->keyword_norm;
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }
