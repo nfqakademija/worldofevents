@@ -32,14 +32,14 @@ class Event
     /**
      * @var string
      *
-     * @ORM\Column(name="price_min", type="decimal")
+     * @ORM\Column(name="price_min", type="decimal", scale=2)
      */
     private $priceMin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price_max", type="decimal")
+     * @ORM\Column(name="price_max", type="decimal", scale=2)
      */
     private $priceMax;
 
