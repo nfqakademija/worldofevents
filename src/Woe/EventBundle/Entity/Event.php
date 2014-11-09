@@ -32,14 +32,14 @@ class Event
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="source_url", type="string", length=255)
+     * @ORM\Column(name="source_url", type="string", length=255, nullable=true)
      */
     private $source_url;
 
@@ -53,28 +53,28 @@ class Event
     /**
      * @var string
      *
-     * @ORM\Column(name="price_min", type="decimal", scale=2)
+     * @ORM\Column(name="price_min", type="decimal", scale=2, nullable=true)
      */
     private $priceMin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price_max", type="decimal", scale=2)
+     * @ORM\Column(name="price_max", type="decimal", scale=2, nullable=true)
      */
     private $priceMax;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="information", type="text")
+     * @ORM\Column(name="information", type="text", nullable=true)
      */
     private $information;
 
@@ -82,7 +82,7 @@ class Event
      * @var Location
      *
      * @ORM\ManyToOne(targetEntity="Location", inversedBy="events")
-     * @ORM\JoinColumn(name="location_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="location_id", referencedColumnName="id", nullable=false)
      */
     private $location;
 

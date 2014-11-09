@@ -39,14 +39,14 @@ class Location
     /**
      * @var float
      *
-     * @ORM\Column(name="latitude", type="float")
+     * @ORM\Column(name="latitude", type="float", nullable=true)
      */
     private $latitude;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="longitude", type="float")
+     * @ORM\Column(name="longitude", type="float", nullable=true)
      */
     private $longitude;
 
@@ -61,7 +61,7 @@ class Location
      * @var City
      *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="location")
-     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id", nullable=false)
      */
     private $city;
 
