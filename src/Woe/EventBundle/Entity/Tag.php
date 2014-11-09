@@ -1,6 +1,6 @@
 <?php
 
-namespace Woe\FilterBundle\Entity;
+namespace Woe\EventBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -81,10 +81,10 @@ class Tag
     /**
      * Add keywords
      *
-     * @param \Woe\FilterBundle\Entity\Keyword $keywords
+     * @param \Woe\EventBundle\Entity\Keyword $keywords
      * @return Tag
      */
-    public function addKeyword(\Woe\FilterBundle\Entity\Keyword $keywords)
+    public function addKeyword(\Woe\EventBundle\Entity\Keyword $keywords)
     {
         $this->keywords[] = $keywords;
 
@@ -94,9 +94,9 @@ class Tag
     /**
      * Remove keywords
      *
-     * @param \Woe\FilterBundle\Entity\Keyword $keywords
+     * @param \Woe\EventBundle\Entity\Keyword $keywords
      */
-    public function removeKeyword(\Woe\FilterBundle\Entity\Keyword $keywords)
+    public function removeKeyword(\Woe\EventBundle\Entity\Keyword $keywords)
     {
         $this->keywords->removeElement($keywords);
     }

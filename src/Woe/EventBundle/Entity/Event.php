@@ -97,7 +97,7 @@ class Event
     private $distributor;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Woe\FilterBundle\Entity\Tag", inversedBy="events")
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="events")
      * @ORM\JoinTable(name="events_tags")
      */
     private $tags;
@@ -281,10 +281,10 @@ class Event
     /**
      * Add tags
      *
-     * @param \Woe\FilterBundle\Entity\Tag $tags
+     * @param \Woe\EventBundle\Entity\Tag $tags
      * @return Event
      */
-    public function addTag(\Woe\FilterBundle\Entity\Tag $tags)
+    public function addTag(\Woe\EventBundle\Entity\Tag $tags)
     {
         $this->tags[] = $tags;
 
@@ -294,9 +294,9 @@ class Event
     /**
      * Remove tags
      *
-     * @param \Woe\FilterBundle\Entity\Tag $tags
+     * @param \Woe\EventBundle\Entity\Tag $tags
      */
-    public function removeTag(\Woe\FilterBundle\Entity\Tag $tags)
+    public function removeTag(\Woe\EventBundle\Entity\Tag $tags)
     {
         $this->tags->removeElement($tags);
     }
