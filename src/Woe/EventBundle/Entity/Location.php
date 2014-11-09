@@ -211,7 +211,7 @@ class Location
      * @param City $city
      * @return Location
      */
-    public function setCity(City $city = null)
+    public function setCity(City $city)
     {
         $this->city = $city;
 

@@ -246,7 +246,7 @@ class Event
      * @param Location $location
      * @return Event
      */
-    public function setLocation(Location $location = null)
+    public function setLocation(Location $location)
     {
         $this->location = $location;
 
