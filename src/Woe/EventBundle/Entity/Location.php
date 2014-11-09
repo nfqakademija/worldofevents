@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Location
  *
- * @ORM\Table()
+ * @ORM\Table(name="locations")
  * @ORM\Entity(repositoryClass="Woe\EventBundle\Entity\LocationRepository")
  */
 class Location

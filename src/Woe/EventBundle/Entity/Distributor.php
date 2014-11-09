@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Distributor
  *
- * @ORM\Table()
+ * @ORM\Table("distributors")
  * @ORM\Entity
  */
 class Distributor
