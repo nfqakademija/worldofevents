@@ -37,6 +37,8 @@ class Organizer
     private $url;
 
     /**
+     * @var Event[]
+     *
      * @ORM\OneToMany(targetEntity="Event", mappedBy="organizer")
      */
     private $events;
@@ -128,7 +130,7 @@ class Organizer
     /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Event[]
      */
     public function getEvents()
     {

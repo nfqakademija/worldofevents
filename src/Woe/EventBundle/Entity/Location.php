@@ -51,11 +51,15 @@ class Location
     private $longitude;
 
     /**
+     * @var Event[]
+     *
      * @ORM\OneToMany(targetEntity="Event", mappedBy="location")
      */
     private $events;
 
     /**
+     * @var City
+     *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="location")
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      */
@@ -194,7 +198,7 @@ class Location
     /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Event[]
      */
     public function getEvents()
     {

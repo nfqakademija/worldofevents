@@ -37,6 +37,8 @@ class Distributor
     private $url;
 
     /**
+     * @var Event[]
+     *
      * @ORM\OneToMany(targetEntity="Event", mappedBy="distributor")
      */
     private $events;
@@ -128,7 +130,7 @@ class Distributor
     /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Event[]
      */
     public function getEvents()
     {

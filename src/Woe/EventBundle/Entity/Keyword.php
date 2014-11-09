@@ -30,6 +30,8 @@ class Keyword
     private $name;
 
     /**
+     * @var Tag[]
+     *
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="keywords")
      * @ORM\JoinTable(name="keywords_tags")
      */
@@ -99,7 +101,7 @@ class Keyword
     /**
      * Get tags
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Tag[]
      */
     public function getTags()
     {

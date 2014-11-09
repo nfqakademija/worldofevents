@@ -30,11 +30,15 @@ class Tag
     private $name;
 
     /**
+     * @var Keyword[]
+     *
      * @ORM\ManyToMany(targetEntity="Keyword", mappedBy="tags")
      */
     private $keywords;
 
     /**
+     * @var Event[]
+     *
      * @ORM\ManyToMany(targetEntity="Woe\EventBundle\Entity\Event", mappedBy="tags")
      */
     private $events;
@@ -79,32 +83,9 @@ class Tag
     }
 
     /**
-     * Add keywords
-     *
-     * @param \Woe\EventBundle\Entity\Keyword $keywords
-     * @return Tag
-     */
-    public function addKeyword(\Woe\EventBundle\Entity\Keyword $keywords)
-    {
-        $this->keywords[] = $keywords;
-
-        return $this;
-    }
-
-    /**
-     * Remove keywords
-     *
-     * @param \Woe\EventBundle\Entity\Keyword $keywords
-     */
-    public function removeKeyword(\Woe\EventBundle\Entity\Keyword $keywords)
-    {
-        $this->keywords->removeElement($keywords);
-    }
-
-    /**
      * Get keywords
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Keyword[]
      */
     public function getKeywords()
     {
@@ -112,32 +93,9 @@ class Tag
     }
 
     /**
-     * Add events
-     *
-     * @param \Woe\EventBundle\Entity\Event $events
-     * @return Tag
-     */
-    public function addEvent(\Woe\EventBundle\Entity\Event $events)
-    {
-        $this->events[] = $events;
-
-        return $this;
-    }
-
-    /**
-     * Remove events
-     *
-     * @param \Woe\EventBundle\Entity\Event $events
-     */
-    public function removeEvent(\Woe\EventBundle\Entity\Event $events)
-    {
-        $this->events->removeElement($events);
-    }
-
-    /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Event[]
      */
     public function getEvents()
     {

@@ -99,7 +99,7 @@ class City
     /**
      * Get locations
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Location[]
      */
     public function getLocations()
     {

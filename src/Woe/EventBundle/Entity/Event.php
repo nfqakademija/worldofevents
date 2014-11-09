@@ -79,24 +79,32 @@ class Event
     private $information;
 
     /**
+     * @var Location
+     *
      * @ORM\ManyToOne(targetEntity="Location", inversedBy="events")
      * @ORM\JoinColumn(name="location_id", referencedColumnName="id")
      */
     private $location;
 
     /**
+     * @var Organizer
+     *
      * @ORM\ManyToOne(targetEntity="Organizer", inversedBy="events")
      * @ORM\JoinColumn(name="organizer_id", referencedColumnName="id")
      */
     private $organizer;
 
     /**
+     * @var Distributor
+     *
      * @ORM\ManyToOne(targetEntity="Distributor", inversedBy="events")
      * @ORM\JoinColumn(name="distributor_id", referencedColumnName="id")
      */
     private $distributor;
 
     /**
+     * @var Tag[]
+     *
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="events")
      * @ORM\JoinTable(name="events_tags")
      */
@@ -304,7 +312,7 @@ class Event
     /**
      * Get tags
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Tag[]
      */
     public function getTags()
     {
