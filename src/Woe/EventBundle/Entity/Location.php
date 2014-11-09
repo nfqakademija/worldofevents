@@ -175,10 +175,10 @@ class Location
     /**
      * Add events
      *
-     * @param \Woe\EventBundle\Entity\Event $events
+     * @param Event $events
      * @return Location
      */
-    public function addEvent(\Woe\EventBundle\Entity\Event $events)
+    public function addEvent(Event $events)
     {
         $this->events[] = $events;
 
@@ -188,9 +188,9 @@ class Location
     /**
      * Remove events
      *
-     * @param \Woe\EventBundle\Entity\Event $events
+     * @param Event $events
      */
-    public function removeEvent(\Woe\EventBundle\Entity\Event $events)
+    public function removeEvent(Event $events)
     {
         $this->events->removeElement($events);
     }
@@ -208,10 +208,10 @@ class Location
     /**
      * Set city
      *
-     * @param \Woe\EventBundle\Entity\City $city
+     * @param City $city
      * @return Location
      */
-    public function setCity(\Woe\EventBundle\Entity\City $city = null)
+    public function setCity(City $city = null)
     {
         $this->city = $city;
 
@@ -221,7 +221,7 @@ class Location
     /**
      * Get city
      *
-     * @return \Woe\EventBundle\Entity\City 
+     * @return City
      */
     public function getCity()
     {

@@ -243,10 +243,10 @@ class Event
     /**
      * Set location
      *
-     * @param \Woe\EventBundle\Entity\Location $location
+     * @param Location $location
      * @return Event
      */
-    public function setLocation(\Woe\EventBundle\Entity\Location $location = null)
+    public function setLocation(Location $location = null)
     {
         $this->location = $location;
 
@@ -256,7 +256,7 @@ class Event
     /**
      * Get location
      *
-     * @return \Woe\EventBundle\Entity\Location 
+     * @return Location
      */
     public function getLocation()
     {
@@ -266,10 +266,10 @@ class Event
     /**
      * Set organizer
      *
-     * @param \Woe\EventBundle\Entity\Organizer $organizer
+     * @param Organizer $organizer
      * @return Event
      */
-    public function setOrganizer(\Woe\EventBundle\Entity\Organizer $organizer = null)
+    public function setOrganizer(Organizer $organizer = null)
     {
         $this->organizer = $organizer;
 
@@ -279,7 +279,7 @@ class Event
     /**
      * Get organizer
      *
-     * @return \Woe\EventBundle\Entity\Organizer 
+     * @return Organizer
      */
     public function getOrganizer()
     {
@@ -289,10 +289,10 @@ class Event
     /**
      * Add tags
      *
-     * @param \Woe\EventBundle\Entity\Tag $tags
+     * @param Tag $tags
      * @return Event
      */
-    public function addTag(\Woe\EventBundle\Entity\Tag $tags)
+    public function addTag(Tag $tags)
     {
         $this->tags[] = $tags;
 
@@ -302,9 +302,9 @@ class Event
     /**
      * Remove tags
      *
-     * @param \Woe\EventBundle\Entity\Tag $tags
+     * @param Tag $tags
      */
-    public function removeTag(\Woe\EventBundle\Entity\Tag $tags)
+    public function removeTag(Tag $tags)
     {
         $this->tags->removeElement($tags);
     }
@@ -368,10 +368,10 @@ class Event
     /**
      * Set distributor
      *
-     * @param \Woe\EventBundle\Entity\Distributor $distributor
+     * @param Distributor $distributor
      * @return Event
      */
-    public function setDistributor(\Woe\EventBundle\Entity\Distributor $distributor = null)
+    public function setDistributor(Distributor $distributor = null)
     {
         $this->distributor = $distributor;
 
@@ -381,7 +381,7 @@ class Event
     /**
      * Get distributor
      *
-     * @return \Woe\EventBundle\Entity\Distributor 
+     * @return Distributor
      */
     public function getDistributor()
     {

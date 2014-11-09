@@ -107,10 +107,10 @@ class Distributor
     /**
      * Add events
      *
-     * @param \Woe\EventBundle\Entity\Event $events
+     * @param Event $events
      * @return Distributor
      */
-    public function addEvent(\Woe\EventBundle\Entity\Event $events)
+    public function addEvent(Event $events)
     {
         $this->events[] = $events;
 
@@ -120,9 +120,9 @@ class Distributor
     /**
      * Remove events
      *
-     * @param \Woe\EventBundle\Entity\Event $events
+     * @param Event $events
      */
-    public function removeEvent(\Woe\EventBundle\Entity\Event $events)
+    public function removeEvent(Event $events)
     {
         $this->events->removeElement($events);
     }

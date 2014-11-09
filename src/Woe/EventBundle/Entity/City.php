@@ -76,10 +76,10 @@ class City
     /**
      * Add locations
      *
-     * @param \Woe\EventBundle\Entity\Location $locations
+     * @param Location $locations
      * @return City
      */
-    public function addLocation(\Woe\EventBundle\Entity\Location $locations)
+    public function addLocation(Location $locations)
     {
         $this->locations[] = $locations;
 
@@ -89,9 +89,9 @@ class City
     /**
      * Remove locations
      *
-     * @param \Woe\EventBundle\Entity\Location $locations
+     * @param Location $locations
      */
-    public function removeLocation(\Woe\EventBundle\Entity\Location $locations)
+    public function removeLocation(Location $locations)
     {
         $this->locations->removeElement($locations);
     }

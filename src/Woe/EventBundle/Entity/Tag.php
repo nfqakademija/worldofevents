@@ -39,7 +39,7 @@ class Tag
     /**
      * @var Event[]
      *
-     * @ORM\ManyToMany(targetEntity="Woe\EventBundle\Entity\Event", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="Event", mappedBy="tags")
      */
     private $events;
 

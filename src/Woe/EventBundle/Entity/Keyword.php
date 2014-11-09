@@ -78,10 +78,10 @@ class Keyword
     /**
      * Add tags
      *
-     * @param \Woe\EventBundle\Entity\Tag $tags
+     * @param Tag $tags
      * @return Keyword
      */
-    public function addTag(\Woe\EventBundle\Entity\Tag $tags)
+    public function addTag(Tag $tags)
     {
         $this->tags[] = $tags;
 
@@ -91,9 +91,9 @@ class Keyword
     /**
      * Remove tags
      *
-     * @param \Woe\EventBundle\Entity\Tag $tags
+     * @param Tag $tags
      */
-    public function removeTag(\Woe\EventBundle\Entity\Tag $tags)
+    public function removeTag(Tag $tags)
     {
         $this->tags->removeElement($tags);
     }
