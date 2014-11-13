@@ -3,8 +3,26 @@
 	<div class="container">	
             <div class="navbar-header"><a href="#">The World of Events</a></div>
 	    <ul>
-	        <li><div class="square user-icon"><img src="http://www.campaignrep.com/sites/default/files/sitewide/profile-default.png"></div></li>
-	        <li><div class="square notifications-icon"><img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/43.Bell-128.png"></div></li>
+	        <li>
+				<img src="http://www.campaignrep.com/sites/default/files/sitewide/profile-default.png" id="usr-drp" class="dropdown dropdown-tip square user-icon">
+					<ul id="dropdown-menu">
+						<li>a</li>
+						<li>b</li>
+						<li>c</li>
+						<li>d</li>
+					</ul>
+				</img>
+			</li>
+	        <li>
+				<div src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/43.Bell-128.png" id="ntf-drp" class="dropdown dropdown-tip square notifications-icon">
+					<ul id="dropdown-menu">
+						<li>a</li>
+						<li>b</li>
+						<li>c</li>
+						<li>d</li>
+					</ul>
+				</div>
+			</li>
 	    </ul> 
     </nav>
 {% endblock %} 
