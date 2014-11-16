@@ -1,1 +1,9 @@
 {% extends '::base.html.twig' %}
+
+{% block navbar %}
+ {{ include('WoeWebBundle:Header:navbar.html.twig') }}
+{% endblock %}
+
+{% block footer %}
+ {{ include('WoeWebBundle:Footer:footer.html.twig') }} 
+{% endblock %}
