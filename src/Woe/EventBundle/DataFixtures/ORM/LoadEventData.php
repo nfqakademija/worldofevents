@@ -12,22 +12,17 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $event = new Event();
-        $event->setRequiredFields(
-            "Duis aute irure dolor in reprehenderit",
-            new \DateTime('now'),
-            $this->getReference('event-location')
-        );
-
-        $event->setOptionalFields(
-            "10.00",
-            "20.00",
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-            "http://fake.dev/event/15",
-            "image.jpg",
-            $this->getReference('event-organizer'),
-            $this->getReference('event-distributor')
-        );
+        $event->setTitle("Duis aute irure dolor in reprehenderit");
+        $event->setDate(new \DateTime('now'));
+        $event->setLocation($this->getReference('event-location'));
+        $event->setPriceMin("10.00");
+        $event->setPriceMax("20.00");
+        $event->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit");
+        $event->setInformation("Ut enim ad minim veniam, quis nostrud exercitation ullamco");
+        $event->setSourceUrl("http://fake.dev/event/15");
+        $event->setImage("image.jpg");
+        $event->setOrganizer($this->getReference('event-organizer'));
+        $event->setDistributor($this->getReference('event-distributor'));
 
         $event->addTags(
             array(

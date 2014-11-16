@@ -195,20 +195,6 @@ class Event
     }
 
     /**
-     * Set priceMin and priceMa
-     *
-     * @param $priceMin
-     * @param $priceMax
-     * @return Event
-     */
-    public function setPrice($priceMin, $priceMax)
-    {
-        $this->setPriceMin($priceMin);
-        $this->setPriceMax($priceMax);
-        return $this;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
@@ -423,49 +409,6 @@ class Event
     public function getSourceUrl()
     {
         return $this->source_url;
-    }
-
-    /**
-     * Set required fields
-     *
-     * @param string $title
-     * @param \DateTime $date
-     * @param Location $location
-     * @return $this
-     */
-    public function setRequiredFields($title, \DateTime $date, Location $location)
-    {
-        $this->setTitle($title);
-        $this->setDate($date);
-        $this->setLocation($location);
-
-        return $this;
-    }
-
-    /**
-     * Set optional fields
-     *
-     * @param string $priceMin
-     * @param string $priceMax
-     * @param string $description
-     * @param string $information
-     * @param string $url
-     * @param string $image
-     * @param Organizer $organizer
-     * @param Distributor $distributor
-     * @return $this
-     */
-    public function setOptionalFields($priceMin, $priceMax, $description, $information, $url, $image, $organizer, $distributor)
-    {
-        $this->setPrice($priceMin, $priceMax);
-        $this->setDescription($description);
-        $this->setInformation($information);
-        $this->setSourceUrl($url);
-        $this->setImage($image);
-        $this->setOrganizer($organizer);
-        $this->setDistributor($distributor);
-
-        return $this;
     }
 
     /**
