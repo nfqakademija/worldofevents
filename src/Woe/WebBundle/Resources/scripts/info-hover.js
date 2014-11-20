@@ -2,13 +2,11 @@
 
 (function(){
 	
-		$('.event-info').mouseEnter(function(){
+		$('.event-info .event-image').mouseEnter(function(){
 			$(this).fadeOut('fast');
 		});
 		
-		$('.event-info').mouseLeave(function(){
+		$('.event-info .event-image').mouseLeave(function(){
 			$(this).fadeIn('fast');
 		});
-	
-	});
 })();
