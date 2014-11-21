@@ -78,7 +78,7 @@ class BilietaiEventParser
      * Get price range
      * @return null|string
      */
-    public function getPriceRange()
+    private function getPriceRange()
     {
         $price_range = $this->getNodeValueOrNull("//td[contains(@class, 'price')]");
 
@@ -115,8 +115,8 @@ class BilietaiEventParser
      */
     public function getSourceUrl()
     {
-        return $this->source_url;
-//        return $this->getNodeValueOrNull("//meta[@property='og:url']/@content");
+        return $this->source_url ? $this->source_url
+                                 : $this->getNodeValueOrNull("//meta[@property='og:url']/@content");
     }
 
     /**
@@ -134,7 +134,7 @@ class BilietaiEventParser
      */
     public function getDate()
     {
-        $date = $this->getNodeValueOrNull("//table[@id='same_events']//td");
+        $date = $this->getNodeValueOrNull($this->getDateAndLocationColumns());
         // Matches 2014.11.21-23 date format
         if (preg_match('/(\d{4}\.\d{1,2}\.\d{1,2})\-\d{1,2}/', $date)) {
             // TODO: Discuss how to store this type of events
@@ -156,7 +156,7 @@ class BilietaiEventParser
      */
     public function getCity()
     {
-        return $this->getNodeValueOrNull("//table[@id='same_events']//td", 1);
+        return $this->getNodeValueOrNull($this->getDateAndLocationColumns(), 1);
     }
 
     /**
@@ -165,7 +165,7 @@ class BilietaiEventParser
      */
     public function getPlace()
     {
-        return $this->getNodeValueOrNull("//table[@id='same_events']//td", 2);
+        return $this->getNodeValueOrNull($this->getDateAndLocationColumns(), 2);
     }
 
     /**
@@ -174,15 +174,26 @@ class BilietaiEventParser
      */
     public function isValid()
     {
-        return (bool) $this->getPriceRange();
+        return $this->isOnSale();
     }
 
     /**
-     * @param $price_range
+     * Return true if tickets are purchasable
      * @return bool
      */
-    public function isOnSale($price_range)
+    public function isOnSale()
     {
-        return !is_null($price_range) || strpos($price_range, 'parduota') === false;
+        $price = $this->getNodeValueOrNull("//td[contains(@class, 'price')]");
+        return strpos($price, 'parduota') === false;
+    }
+
+    /**
+     * Get XPath for an active row with date, city and place columns
+     * @return string
+     */
+    private function getDateAndLocationColumns()
+    {
+        $xpath = "//table[@id='same_events']//tr[contains(concat(' ', @class, ' '), ' act ')]/td";
+        return $xpath;
     }
 }
