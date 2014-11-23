@@ -1,0 +1,1399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+    <head>
+        <base href="http://www.bilietai.lt/" />
+        <title>Visi renginiai</title>
+        <meta name="description" content="#all_events_description" />
+        <meta name="keywords" content="#all_events_keywords" />
+        <meta name="copyright" content="TicketEx LT" />
+        <meta name="author" content="TicketEx LT" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+
+        <link rel="shortcut icon" href="public/favicon_lt.ico" />
+
+                <script type="text/javascript" src="public/lt/js/common.js"></script>
+        <script type="text/javascript" src="public/lt/js/SimpleBox.1.02.js"></script>
+        <script type="text/javascript" src="public/lt/js/window.js"></script>
+        <script type="text/javascript" src="public/lt/js/jquery-1.6.4.js"></script>
+        <script type="text/javascript" src="public/lt/js/jquery.currency.js"></script>
+        <script type="text/javascript" src="public/lt/js/jquery.secondPrice.js"></script>
+        <script type="text/javascript" src="public/lt/js/script.js"></script>
+
+                    <script type="text/javascript" src="public/lt/js/autocomplete.js"></script>
+        
+        <link rel="stylesheet" type="text/css" media="all" href="public/lt/css/core.css"  />
+                    <link rel="stylesheet" type="text/css" media="all" href="public/lt/css/main.css"  />
+                            <link rel="stylesheet" type="text/css" media="all" href="public/lt/css/autocomplete.css"  />
+        
+        <!--[if IE 7]>
+            <link rel="stylesheet" href="http://www.bilietai.lt/public/css/ie7.css"  type="text/css" />
+        <![endif]-->
+        <!--[if lt IE 7]>
+            <link rel="stylesheet" href="http://www.bilietai.lt/public/css/ie6.css"  type="text/css" />
+        <![endif]-->
+
+        <script type="text/javascript" src="public/lt/js/jquery.prettyPhoto.js"></script>
+        <script type="text/javascript" src="public/lt/js/balloontip.js"></script>
+        <script type="text/javascript" src="public/lt/js/balloon.config.js"></script>
+        <script type="text/javascript" src="public/lt/js/yahoo-dom-event.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("a[rel^='prettyPhoto']").prettyPhoto();
+            });
+        </script>
+        <link rel="stylesheet" type="text/css" media="all" href="public/lt/css/jquery-ui-1.8.18.custom.css"  />
+        <link rel="stylesheet" type="text/css" media="all" href="public/lt/css/prettyPhoto.css"  />
+        <link rel="stylesheet" type="text/css" media="all" href="public/lt/css/balloontip.css"  />
+        <script type="text/javascript" src="public/lt/js/jquery.stylish.select.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+
+        <script type="text/javascript">
+            function Tip() {
+                return false;
+            }
+
+            function setVisibility(id, visibility) {
+                document.getElementById(id).style.display = visibility;
+            }
+
+            $(function () {
+                $('#event_subcategory select').sSelect();
+                $('#event_place select').sSelect({ddMaxHeight: '300px'});
+                $('#event_category select').sSelect();
+                $('#event_city select').sSelect();
+                $('#event_discount select').sSelect({ddMaxHeight: '300px'});
+                $('#price_from select').sSelect();
+                $('#price_to select').sSelect();
+                $('#t_discount select').sSelect();
+                //$("#sel_t_sector").sSelect()
+            });
+            var base = {
+                css: "public/lt/css",
+                img: "public/lt/media",
+                js: "public/lt/js",
+            };
+        </script>
+        
+        
+    </head>
+    <body class="body">
+        <!--/* OpenX Javascript Tag v2.8.10 */-->
+
+<!--/*
+  * The backup image section of this tag has been generated for use on a
+  * non-SSL page. If this tag is to be placed on an SSL page, change the
+  *   'http://vilkas.bltt.eu/openx/www/delivery/...'
+  * to
+  *   'https://vilkas.bltt.eu/openx/www/delivery/...'
+  *
+  * This noscript section of this tag only shows image banners. There
+  * is no width or height in these banners, so if you want these tags to
+  * allocate space for the ad before it shows, you will need to add this
+  * information to the <img> tag.
+  *
+  * If you do not want to deal with the intricities of the noscript
+  * section, delete the tag (from <noscript>... to </noscript>). On
+  * average, the noscript tag is called from less than 1% of internet
+  * users.
+  */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=74");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=a5fbb0b6&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=74&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a5fbb0b6' border='0' alt='' /></a></noscript>                        
+        <table class="full">
+            <tr>
+                <td>
+                    <table class="full_table">
+                        <tr class="on_load">
+                            <td>&nbsp;</td>
+                            <td class="mid">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="full_top">
+                                                            <td class="left"><div><img src="public/lt/media/images/s.gif" alt="" /></div></td>
+                                                        <td class="mid">
+                                <div class="container">
+                                                                            <div class="header">
+                                            <table class="wf">
+                                                <tr>
+                                                    <td class="header_left">
+                                                        <div class="logo">
+                                                            <a href="http://www.bilietai.lt/lt/" title="BILIETAI LT - Titulinis"><img src="public/lt/media/images/hdr/logo_lt.png" alt="" /></a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="header_right">
+                                                        <div class="menu_top ainv">
+                                                            <a href="lt/page/how-to-buy-tickets" title="Kaip pirkti bilietą?">Kaip pirkti bilietą?</a>
+                                                            <span class="sep">|</span>
+                                                            <a href="lt/page/faq" title="D.U.K.">D.U.K.</a>
+                                                            <span class="sep">|</span>
+                                                            <a href="lt/cashiers" title="Kasos">Kasos</a>
+                                                            <span class="sep">|</span>
+                                                            <a href="lt/page/contacts" title="Kontaktai">Kontaktai</a>
+                                                                                                                            <span class="sep">|</span>
+                                                                <a href="lt/login" title="Arenos vartotojams">Arenos vartotojams</a>
+                                                                                                                                                                                        <span class="sep">|</span>
+                                                                <a href="invoicePage" alt="(PVM) sąskaitos faktūros"><span style="color: red">(PVM) sąskaitos faktūros</span></a>
+                                                                                                                    </div>
+                                                        <div class="lang" align="right">
+                                                            <table>
+                                                                <tr>
+                                                                    <td class="lang_text">Kalba:</td>
+                                                                                                                                            <td><a href="http://www.bilietai.lt/lt/category/0/57" title="LT"><img src="public/lt/media/images/ico/lang_lt.gif" onmouseover="over(this);" onmouseout="over(this);" alt="LT" /></a></td>
+                                                                                                                                            <td><a href="http://www.bilietai.lt/en/category/0/57" title="EN"><img src="public/lt/media/images/ico/lang_en.gif" onmouseover="over(this);" onmouseout="over(this);" alt="EN" /></a></td>
+                                                                                                                                    </tr>
+                                                            </table>
+                                                            <div class="preload">
+                                                                                                                                    <img src="public/lt/media/images/ico/lang_lt_ov.gif" alt="" />
+                                                                                                                                    <img src="public/lt/media/images/ico/lang_en_ov.gif" alt="" />
+                                                                                                                            </div>
+                                                        </div>
+                                                        <div class="clr"></div>
+                                                        <table class="banner_top">
+                                                            <tr>
+                                                                <td>
+                                                                    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1052510-2', 'bilietai.lt');
+  ga('send', 'pageview');
+
+</script>
+
+<!--/* OpenX Javascript Tag v2.8.9 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=42");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=ad21eeb1&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=42&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ad21eeb1' border='0' alt='' /></a></noscript>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div class="header_links ainv">
+                                                                                                                    </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                                                            <table class="content_table">
+                                        <tr>
+                                            <td class="col_left">
+                                                                                                    <div class="search" style="position: absolute">
+                                                        <form action="lt/search/" method="get" id="search_form">
+                                                            <table>
+                                                                <tr>
+                                                                    <td class="search_input">
+                                                                        <input id="keyword" name="key" type="text" onkeyup="lookup(4, this.value, event);" onkeydown="checkFocus(event)" onfocus="if ($('#keyword').attr('value') == 'Renginio pavadinimas') {
+                                                                                        $('#keyword').val('');
+                                                                                    }" onblur="if ($('#keyword').attr('value') == '') {
+                                                                                                $('#keyword').val('Renginio pavadinimas');
+                                                                                            }" value="Renginio pavadinimas" autocomplete="off" /><input name="s" value="" type="hidden"/>
+                                                                        <div id="suggestions"></div>                                                                    </td>
+                                                                    <td class="search_button">
+                                                                        <input type="image" src="public/lt/media/images/btn/search.gif" onmouseover="over(this);" onmouseout="over(this);" onclick="$('#search_form').submit();
+                                                                                    return false;" title="Paieška" />
+                                                                        <img class="preload" src="public/lt/media/images/btn/search_ov.gif" alt="" />
+                                                                    </td>
+                                                                    <td class="search_link">
+                                                                        <a href="lt/search" title="Detali paieška">Detali paieška</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </form>
+                                                    </div>
+                                                                                                                                                    <div class = "info">
+                                                        <img src="public/media/images/img/1588.jpg" alt="1588" />                                                    </div>
+                                                                                                    <div class="clr"></div>
+                                                                                                    <div class="main_menu">
+                                                                                                                                                                        <div class="menu_item menu_item_first item_act" style="z-index: 7;">
+                                                            <table onmouseover="over(this);" onmouseout="over(this);">
+                                                                <tr>
+                                                                    <td class="style_1" onclick="window.location = 'lt/category'">
+                                                                        <a href="lt/category" title="Visi renginiai">Visi renginiai</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+
+                                                                                                                                                                                                                                        <!-- prieš aktyvų esantis meniu elementas gauna klasę "next_act" -->
+                                                            <div class="menu_item" style="z-index: 6;">
+                                                                <table onmouseover="over(this);" onmouseout="over(this);">
+                                                                    <tr>
+                                                                        <td class="style_2" onclick="window.location = 'lt/category/73'">
+                                                                                                                                                            <a href="lt/category/73" title="Koncertai">Koncertai</a>
+                                                                                                                                                    </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                        <!-- prieš aktyvų esantis meniu elementas gauna klasę "next_act" -->
+                                                            <div class="menu_item" style="z-index: 5;">
+                                                                <table onmouseover="over(this);" onmouseout="over(this);">
+                                                                    <tr>
+                                                                        <td class="style_3" onclick="window.location = 'lt/category/72'">
+                                                                                                                                                            <a href="lt/category/72" title="Teatras">Teatras</a>
+                                                                                                                                                    </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                        <!-- prieš aktyvų esantis meniu elementas gauna klasę "next_act" -->
+                                                            <div class="menu_item" style="z-index: 4;">
+                                                                <table onmouseover="over(this);" onmouseout="over(this);">
+                                                                    <tr>
+                                                                        <td class="style_4" onclick="window.location = 'lt/category/74'">
+                                                                                                                                                            <a href="lt/category/74" title="Sportas">Sportas</a>
+                                                                                                                                                    </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                        <!-- prieš aktyvų esantis meniu elementas gauna klasę "next_act" -->
+                                                            <div class="menu_item" style="z-index: 3;">
+                                                                <table onmouseover="over(this);" onmouseout="over(this);">
+                                                                    <tr>
+                                                                        <td class="style_5" onclick="window.location = 'lt/category/86'">
+                                                                                                                                                            <a href="lt/category/86" title="Parodos Seminarai">Parodos Seminarai</a>
+                                                                                                                                                    </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                        <!-- prieš aktyvų esantis meniu elementas gauna klasę "next_act" -->
+                                                            <div class="menu_item" style="z-index: 2;">
+                                                                <table onmouseover="over(this);" onmouseout="over(this);">
+                                                                    <tr>
+                                                                        <td class="style_6" onclick="window.location = 'lt/category/88'">
+                                                                                                                                                            <a href="lt/category/88" title="Dovanų čekiai">Dovanų čekiai</a>
+                                                                                                                                                    </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                                                                                                                                                                                                                                                                        <!-- prieš aktyvų esantis meniu elementas gauna klasę "next_act" -->
+                                                            <div class="menu_item" style="z-index: 1;">
+                                                                <table onmouseover="over(this);" onmouseout="over(this);">
+                                                                    <tr>
+                                                                        <td class="style_7" onclick="window.location = 'lt/category/75'">
+                                                                                                                                                            <a href="lt/category/75" title="Kitos pramogos">Kitos pramogos</a>
+                                                                                                                                                    </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                                                                                                                                                                                                        <!-- aktyvus meniu elementas gauna klasę "item_act" -->
+                                                        <div class="clr">&nbsp;</div>
+                                                        <div class="preload">
+                                                            <img src="public/lt/media/images/bg/btn_1_na_ov.png" alt="" />
+                                                            <img src="public/lt/media/images/bg/btn_1_ov.png" alt="" />
+                                                            <img src="public/lt/media/images/bg/btn_7_ov.png" alt="" />
+                                                            <img src="public/lt/media/images/bg/btn_ov.png" alt="" />
+                                                            <img src="public/lt/media/images/bg/btn_ov_rp.gif" alt="" />
+                                                        </div>
+                                                    </div>
+                                                                                                 <div class="content main">
+    <div class="page_hdr">Visi renginiai</div>
+    <div class="list_style">
+                <table>
+            <tr>
+                <td class="list_style_hdr">Vaizdavimas:</td>
+                                
+                <td><a href="lt/view/lines/category/0/57/0" title=""><img src="public/lt/media/images/ico/list_style_1.gif" onmouseover="over(this);" onmouseout="over(this);" alt="" /></a></td>
+                                <td><img src="public/lt/media/images/ico/list_style_2_ov.gif" alt="" /></td>
+            </tr>
+        </table>
+        <img class="preload" src="public/lt/media/images/ico/list_style_1_ov.gif" alt="" />
+            </div>
+    <div class="clr"></div>
+        	                            <div class="wf">
+        <table class="list">
+                                                        <tr class="line_1">
+        <td class="list_item item_1 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/22063" title="LEGENDINE GRUPE &quot;BI-2&quot;">LEGENDINE GRUPE &quot;BI-2&quot;</a>
+            </div>
+            <div class="item_place">Forum Palace, GALAXY. Vilnius</div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/22063">
+                                    <img src="event-photo/22063.png" alt="LEGENDINE GRUPE &quot;BI-2&quot;" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                            <td class="date ainv">
+                            Data: <strong>2015-04-05</strong><br />
+                            <a class="oth_dates" href="lt/event/22063" title="Kitos datos">Kitos datos</a>
+                        </td>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            98.50 Lt<br/> <span class="eur">28.53 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                        <a href="event-additional-photo/22063/0.png" rel="prettyPhoto[image_22063_1]" title=""><img src="public/lt/media/images/ico/event_type_2.gif" onmouseover="over(this);" onmouseout="over(this);" alt="" /></a>
+                                <a href="event-additional-photo/22063/1.png" rel="prettyPhoto[image_22063_1]" style="display: none"></a><a href="event-additional-photo/22063/2.png" rel="prettyPhoto[image_22063_1]" style="display: none"></a><a href="event-additional-photo/22063/3.png" rel="prettyPhoto[image_22063_1]" style="display: none"></a><a href="event-additional-photo/22063/4.png" rel="prettyPhoto[image_22063_1]" style="display: none"></a><a href="event-additional-photo/22063/5.png" rel="prettyPhoto[image_22063_1]" style="display: none"></a><a href="event-additional-photo/22063/6.png" rel="prettyPhoto[image_22063_1]" style="display: none"></a><a href="event-additional-photo/22063/7.png" rel="prettyPhoto[image_22063_1]" style="display: none"></a>                                                            <a href="lt/event-video/22063" title=""><img src="public/lt/media/images/ico/event_type_3.gif" onmouseover="over(this);" onmouseout="over(this);" alt="" /></a>                            <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/22063" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            </td>
+                                    <td class="list_item item_2 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/22966" title="Granatos Live 2015">Granatos Live 2015</a>
+            </div>
+            <div class="item_place">Lietuvos liaudies buities muziejus. Rumšiškės</div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/22966">
+                                    <img src="event-photo/22966.png" alt="Granatos Live 2015" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                            <td class="date ainv">
+                            Data: <strong>2015.07.31-08.02</strong><br />
+                            <a class="oth_dates" href="lt/event/22966" title="Kitos datos">Kitos datos</a>
+                        </td>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            135.00 Lt<br/> <span class="eur">39.10 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                        <a href="event-additional-photo/22966/0.png" rel="prettyPhoto[image_22966_1]" title=""><img src="public/lt/media/images/ico/event_type_2.gif" onmouseover="over(this);" onmouseout="over(this);" alt="" /></a>
+                                <a href="event-additional-photo/22966/1.png" rel="prettyPhoto[image_22966_1]" style="display: none"></a><a href="event-additional-photo/22966/2.png" rel="prettyPhoto[image_22966_1]" style="display: none"></a><a href="event-additional-photo/22966/3.png" rel="prettyPhoto[image_22966_1]" style="display: none"></a><a href="event-additional-photo/22966/4.png" rel="prettyPhoto[image_22966_1]" style="display: none"></a>                                                            <a href="lt/event-video/22966" title=""><img src="public/lt/media/images/ico/event_type_3.gif" onmouseover="over(this);" onmouseout="over(this);" alt="" /></a>                            <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/22966" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            </td>
+                                    <td class="list_item item_3 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/22797" title="Parama boksininkei Vaidai Valskytei">Parama boksininkei Vaidai Valskytei</a>
+            </div>
+            <div class="item_place">_. _</div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/22797">
+                                    <img src="event-photo/22797.png" alt="Parama boksininkei Vaidai Valskytei" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                            <td class="date ainv">
+                            Data: <strong>2015-10-21</strong><br />
+                            <a class="oth_dates" href="lt/event/22797" title="Kitos datos">Kitos datos</a>
+                        </td>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            20.00 Lt<br/> <span class="eur">5.79 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                                                    <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/22797" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+                    <script type="text/javascript">
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        calculateHeight(1);
+                    }, 100);
+                });
+            </script>
+            </td>
+                </tr>
+                                <tr class="line_2">
+        <td class="list_item item_1 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/10880" title="BILIETAI LT Dovanų čekis 100 LT">BILIETAI LT Dovanų čekis 100 LT</a>
+            </div>
+            <div class="item_place"></div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/10880">
+                                    <img src="event-photo/10880.png" alt="BILIETAI LT Dovanų čekis 100 LT" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            100.00 Lt<br/> <span class="eur">28.96 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                                                    <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/10880" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            </td>
+                                    <td class="list_item item_2 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/10881" title="BILIETAI LT Dovanų čekis 200 LT">BILIETAI LT Dovanų čekis 200 LT</a>
+            </div>
+            <div class="item_place"></div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/10881">
+                                    <img src="event-photo/10881.png" alt="BILIETAI LT Dovanų čekis 200 LT" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            200.00 Lt<br/> <span class="eur">57.92 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                                                    <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/10881" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            </td>
+                                    <td class="list_item item_3 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/10873" title="BILIETAI LT Dovanų čekis 50 LT">BILIETAI LT Dovanų čekis 50 LT</a>
+            </div>
+            <div class="item_place"></div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/10873">
+                                    <img src="event-photo/10873.png" alt="BILIETAI LT Dovanų čekis 50 LT" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            50.00 Lt<br/> <span class="eur">14.48 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                                                    <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/10873" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+                    <script type="text/javascript">
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        calculateHeight(2);
+                    }, 100);
+                });
+            </script>
+            </td>
+                </tr>
+                                <tr class="line_3">
+        <td class="list_item item_1 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/16808" title="50 LT &quot;DOMINO&quot; TEATRO Dovanų čekis">50 LT &quot;DOMINO&quot; TEATRO Dovanų čekis</a>
+            </div>
+            <div class="item_place"></div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/16808">
+                                    <img src="event-photo/16808.png" alt="50 LT &quot;DOMINO&quot; TEATRO Dovanų čekis" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            50.00 Lt<br/> <span class="eur">14.48 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                                                    <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/16808" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            </td>
+                                    <td class="list_item item_2 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/16811" title="100 LT &quot;DOMINO&quot; TEATRO Dovanų čekis">100 LT &quot;DOMINO&quot; TEATRO Dovanų čekis</a>
+            </div>
+            <div class="item_place"></div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/16811">
+                                    <img src="event-photo/16811.png" alt="100 LT &quot;DOMINO&quot; TEATRO Dovanų čekis" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            100.00 Lt<br/> <span class="eur">28.96 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                                                    <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/16811" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+            </td>
+                                    <td class="list_item item_3 ">
+
+        <div class="list_item_top"><img src="public/lt/media/images/s.gif" alt="" /></div>
+        <div class="list_item_cont">
+            <div class="item_name ainv">
+                <a href="lt/event/16812" title="150 LT &quot;DOMINO&quot; TEATRO Dovanų čekis">150 LT &quot;DOMINO&quot; TEATRO Dovanų čekis</a>
+            </div>
+            <div class="item_place"></div>
+            <div class="item_image">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="posrel">
+                                <a href="lt/event/16812">
+                                    <img src="event-photo/16812.png" alt="150 LT &quot;DOMINO&quot; TEATRO Dovanų čekis" width="202" height="116"/>
+                                </a>
+
+                                                                                                                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wf">
+            <table class="wf">
+                <tr>
+                                                                <td class="price">
+                            <div class="price_padd">
+                                Kaina nuo: <strong>
+                                                                            150.00 Lt<br/> <span class="eur">43.44 €</span>
+                                                                    </strong>
+                            </div>
+                        </td>
+                                    </tr>
+                <tr>
+                    <td class="type">
+                        <div class="type_padd">
+                                                                                                                    <div class="clr"></div>
+                        </div>
+                    </td>
+                    <td class="more">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="lt/event/16812" title="plačiau"><span>plačiau</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+                    <script type="text/javascript">
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        calculateHeight(3);
+                    }, 100);
+                });
+            </script>
+            </td>
+                </tr>
+                    </table>
+    </div>
+      <div class='paging'><table><tr><td class="prev"><table><tr><td><a href="http://www.bilietai.lt/lt/category/0/56"><span>atgal</span></a></td></tr></table></td><td><a href="http://www.bilietai.lt/lt/category/0/1" title="1">1</a></td><td class="dots"><img src="public/lt/media/images/dec/paging_dots.gif" alt="" /></td><td><a href="http://www.bilietai.lt/lt/category/0/52" title="52">52</a></td><td><a href="http://www.bilietai.lt/lt/category/0/53" title="53">53</a></td><td><a href="http://www.bilietai.lt/lt/category/0/54" title="54">54</a></td><td><a href="http://www.bilietai.lt/lt/category/0/55" title="55">55</a></td><td><a href="http://www.bilietai.lt/lt/category/0/56" title="56">56</a></td><td><a href="http://www.bilietai.lt/lt/category/0/57" title="57"><span class="act">57</span></a></td><td class="next_page_disable"><table><tr><td></td></tr></table></td></tr>
+</table>
+<div class="preload">
+<img src="public/lv/media/images/bg/btn_yg_left.gif" alt="" />
+<img src="public/lv/media/images/bg/btn_yg_right2.gif" alt="" />
+<img src="public/lv/media/images/bg/btn_yg_right.gif" alt="" />
+<img src="public/lv/media/images/bg/btn_yg_left2.gif" alt="" />
+</div>
+</div>    </div>                                                                                                    <div class="list_banner">
+                                                        <table class="wf">
+                                                            <tr>
+                                                                <td>
+                                                                    <!--/* OpenX Javascript Tag v2.8.9 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=41");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=af673b74&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=41&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=af673b74' border='0' alt='' /></a></noscript>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                                                            </td>
+                                                                                            <td class="col_right">
+                                                    <div class="easy_ticket">
+                                                        <div class="et_hdr">
+                                                            Įsigyti bilietą yra paprasta:                                                        </div>
+                                                        <div class="et_line">
+                                                            <span class="digit">1</span>Išsirinkite pramogą                                                        </div>
+                                                        <div class="et_line">
+                                                            <span class="digit">2</span>Apmokėkite internetu                                                        </div>
+                                                        <div class="et_line">
+                                                            <span class="digit">3</span>Atsispausdinkite bilietą                                                        </div>
+                                                    </div>
+                                                    <div class="banner">
+                                                                                                                                                                                                                                </div>
+
+                                                                                                            <div style=" padding-left: 20px">
+                                                            <!--/* OpenX Javascript Tag v2.8.10 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=47");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=a8b44813&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=47&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a8b44813' border='0' alt='' /></a></noscript>
+<br/> <br/>
+
+
+<!--/* OpenX Javascript Tag v2.8.10 */-->
+
+<!--/*
+  * The backup image section of this tag has been generated for use on a
+  * non-SSL page. If this tag is to be placed on an SSL page, change the
+  *   'http://vilkas.bltt.eu/openx/www/delivery/...'
+  * to
+  *   'https://vilkas.bltt.eu/openx/www/delivery/...'
+  *
+  * This noscript section of this tag only shows image banners. There
+  * is no width or height in these banners, so if you want these tags to
+  * allocate space for the ad before it shows, you will need to add this
+  * information to the <img> tag.
+  *
+  * If you do not want to deal with the intricities of the noscript
+  * section, delete the tag (from <noscript>... to </noscript>). On
+  * average, the noscript tag is called from less than 1% of internet
+  * users.
+  */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=34");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=ae7abf7e&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=34&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ae7abf7e' border='0' alt='' /></a></noscript>
+<br/> <br/> <br/>
+
+                                                        </div>
+                                                    
+                                                                                                                                                                                                                                                                            <div class="right_white_block">
+                                                            <div class="right_white_cont">
+                                                                <div class="popular_events">
+                                                                    <div class="popular_events_hdr">Populiariausios nuorodos:</div>
+                                                                                                                                            <div class="events_group">
+                                                                            <div class="group_hdr">Išskirtiniai renginiai</div>
+                                                                                                                                                            <div class="group_item">
+                                                                                    <a href="lt/mfilter/1/117" title="Kalėdiniai renginiai">Kalėdiniai renginiai</a>
+                                                                                </div>
+                                                                                                                                                            <div class="group_item">
+                                                                                    <a href="lt/mfilter/1/116" title="Naujametiniai renginiai">Naujametiniai renginiai</a>
+                                                                                </div>
+                                                                                                                                                            <div class="group_item">
+                                                                                    <a href="lt/mfilter/1/63" title="Savaitgalio renginiai">Savaitgalio renginiai</a>
+                                                                                </div>
+                                                                                                                                                            <div class="group_item">
+                                                                                    <a href="lt/mfilter/1/74" title="Renginiai rusų kalba">Renginiai rusų kalba</a>
+                                                                                </div>
+                                                                                                                                                            <div class="group_item">
+                                                                                    <a href="lt/mfilter/1/66" title="Renginiai vaikams">Renginiai vaikams</a>
+                                                                                </div>
+                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="events_group">
+                                                                                                                                                                <div class="group_hdr">Pagal miestą</div>
+                                                                                                                                                        <div class="group_item">
+                                                                                <a href="lt/filter/109" title="Kaunas">Kaunas</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/10" title="Klaipėda">Klaipėda</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/66" title="Panevėžys">Panevėžys</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/11" title="Šiauliai">Šiauliai</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/8" title="Vilnius">Vilnius</a>
+                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="events_group">
+                                                                                                                                                                <div class="group_hdr">Pagal salę</div>
+                                                                                                                                                        <div class="group_item">
+                                                                                <a href="lt/filter/98" title="Domino teatras">Domino teatras</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/59" title="Forum Palace, GALAXY">Forum Palace, GALAXY</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/129" title="Geltonos Sofos Klubas">Geltonos Sofos Klubas</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/147" title="J. Miltinio dramos teatras">J. Miltinio dramos teatras</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/154" title="Kauno kamerinis teatras">Kauno kamerinis teatras</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/134" title="Kauno muzikinis teatras">Kauno muzikinis teatras</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/6" title="Klaipėdos koncertų salė">Klaipėdos koncertų salė</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/153" title="Kultūros centras  &quot;Ramybė&quot;">Kultūros centras  &quot;Ramybė&quot;</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/89" title="Lietuvos nacionalinė filharmonija">Lietuvos nacionalinė filharmonija</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/96" title="LPKC LITEXPO ">LPKC LITEXPO </a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/132" title="Menų studija Artoteka">Menų studija Artoteka</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/159" title="Naujoji koncertų salė">Naujoji koncertų salė</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/2" title="Pramogų arena">Pramogų arena</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/156" title="Pramogų salė &quot;Vakaris Vilnius&quot;">Pramogų salė &quot;Vakaris Vilnius&quot;</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/151" title="Raganiukės Teatras">Raganiukės Teatras</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/125" title="RENGINIŲ OAZĖ">RENGINIŲ OAZĖ</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/79" title="Šv. Kotrynos bažnyčia">Šv. Kotrynos bažnyčia</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/28" title="Švyturio arena">Švyturio arena</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/81" title="Teatras &quot;New York&quot;">Teatras &quot;New York&quot;</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/88" title="Vilniaus kamerinis teatras">Vilniaus kamerinis teatras</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/36" title="Vilniaus mažasis teatras">Vilniaus mažasis teatras</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/65" title="Žalgirio arena">Žalgirio arena</a>
+                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                            <div class="group_item">
+                                                                                <a href="lt/filter/12" title="Žvejų rūmai">Žvejų rūmai</a>
+                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                                                                                <table class="btn_white">
+                                                                        <tr>
+                                                                            <td onmouseover="over(this);" onmouseout="over(this);">
+                                                                                <a href="lt/category" title="Visi renginiai">Visi renginiai</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                    <div class="preload">
+                                                                        <img src="public/lt/media/images/ico/li_ov.gif" alt="" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cor_white_tl"><img src="public/lt/media/images/s.gif" alt="" /></div>
+                                                            <div class="right_white_bot"><img src="public/lt/media/images/s.gif" alt="" /></div>
+                                                        </div>
+                                                        
+                                                        <div class="right_banners">
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href= "http://www.bilietai.lt/lt/category/88" target="_blank">
+<img src="http://www.bilietai.lt/public/lt/media/images/uploads/dovanu_cekis .png" width="180" alt=""/></a>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!--/* OpenX Javascript Tag v2.8.9 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=43");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=afb4cd98&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=43&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=afb4cd98' border='0' alt='' /></a></noscript>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!--/* OpenX Javascript Tag v2.8.9 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=45");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=a367df45&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=45&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a367df45' border='0' alt='' /></a></noscript>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!--/* OpenX Javascript Tag v2.8.9 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=44");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=aee80843&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=44&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=aee80843' border='0' alt='' /></a></noscript>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!--/* OpenX Javascript Tag v2.8.9 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=46");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=adc15a26&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=46&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=adc15a26' border='0' alt='' /></a></noscript>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!--/* OpenX Javascript Tag v2.8.10 */-->
+
+<!--/*
+  * The backup image section of this tag has been generated for use on a
+  * non-SSL page. If this tag is to be placed on an SSL page, change the
+  *   'http://vilkas.bltt.eu/openx/www/delivery/...'
+  * to
+  *   'https://vilkas.bltt.eu/openx/www/delivery/...'
+  *
+  * This noscript section of this tag only shows image banners. There
+  * is no width or height in these banners, so if you want these tags to
+  * allocate space for the ad before it shows, you will need to add this
+  * information to the <img> tag.
+  *
+  * If you do not want to deal with the intricities of the noscript
+  * section, delete the tag (from <noscript>... to </noscript>). On
+  * average, the noscript tag is called from less than 1% of internet
+  * users.
+  */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=69");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=a2341a23&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=69&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a2341a23' border='0' alt='' /></a></noscript>                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!--/* OpenX Javascript Tag v2.8.10 */-->
+
+<!--/*
+  * The backup image section of this tag has been generated for use on a
+  * non-SSL page. If this tag is to be placed on an SSL page, change the
+  *   'http://vilkas.bltt.eu/openx/www/delivery/...'
+  * to
+  *   'https://vilkas.bltt.eu/openx/www/delivery/...'
+  *
+  * This noscript section of this tag only shows image banners. There
+  * is no width or height in these banners, so if you want these tags to
+  * allocate space for the ad before it shows, you will need to add this
+  * information to the <img> tag.
+  *
+  * If you do not want to deal with the intricities of the noscript
+  * section, delete the tag (from <noscript>... to </noscript>). On
+  * average, the noscript tag is called from less than 1% of internet
+  * users.
+  */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=70");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=ae36bfb1&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=70&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ae36bfb1' border='0' alt='' /></a></noscript>                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                            <table class="right_banner">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!--/* OpenX Javascript Tag v2.8.10 */-->
+
+<!--/*
+  * The backup image section of this tag has been generated for use on a
+  * non-SSL page. If this tag is to be placed on an SSL page, change the
+  *   'http://vilkas.bltt.eu/openx/www/delivery/...'
+  * to
+  *   'https://vilkas.bltt.eu/openx/www/delivery/...'
+  *
+  * This noscript section of this tag only shows image banners. There
+  * is no width or height in these banners, so if you want these tags to
+  * allocate space for the ad before it shows, you will need to add this
+  * information to the <img> tag.
+  *
+  * If you do not want to deal with the intricities of the noscript
+  * section, delete the tag (from <noscript>... to </noscript>). On
+  * average, the noscript tag is called from less than 1% of internet
+  * users.
+  */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=71");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=af55b83b&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=71&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=af55b83b' border='0' alt='' /></a></noscript>                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                                                                    </div>
+                                                                                                    </td>
+                                                                                    </tr>
+                                    </table>
+                                </div>
+                            </td>
+                                                            <td class="right"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                                                        </tr>
+                                                    <tr class="full_bot">
+                                <td class="left"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                                <td class="mid"><img class="s" src="public/lt/media/images/s.gif" alt="" /></td>
+                                <td class="right"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                            </tr>
+                                            </table>
+                </td>
+            </tr>
+                            <tr>
+                    <td class="footer_td">
+                        <div class="footer">
+                            <div class="menu_bottom ainv">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <a href="lt/page/how-to-buy-tickets" title="Kaip pirkti bilietą?">Kaip pirkti bilietą?</a>
+                                        </td>
+                                        <td class="sep"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                                        <td>
+                                            <a href="lt/page/faq" title="D.U.K.">D.U.K.</a>
+                                        </td>
+                                        <td class="sep"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                                        <td>
+                                            <a href="lt/cashiers" title="Kasos">Kasos</a>
+                                        </td>
+                                        <td class="sep"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                                        <td>
+                                            <a href="lt/page/contacts" title="Kontaktai">Kontaktai</a>
+                                        </td>
+                                        <td class="sep"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                                        <td>
+                                            <a href="lt/page/organizators" title="Organizatoriai">Organizatoriai</a>
+                                        </td>
+                                        <td class="sep"><img src="public/lt/media/images/s.gif" alt="" /></td>
+                                        <td>
+                                            <a href="lt/page/users-privileges" title="Vartotojų taisyklės">Vartotojų taisyklės</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="copyrights ainv">
+                                Visos teisės saugomos<span class="space">&nbsp;</span>Dizainas: <a href="http://www.gaumina.lt" onclick="window.open(this.href);
+                                            return false;" title="Gaumina">Gaumina</a> &nbsp;/&nbsp; Technologijos: <a href="http://www.nSoft.lt" onclick="window.open(this.href);
+                                                    return false;" title="nSoft.lt">nSoft.lt</a> &nbsp;/&nbsp; Vystymas: <a href="http://www.ticketex.eu" onclick="window.open(this.href);
+                                                            return false;" title="TicketEx"> TicketEx </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                    </table>
+                        
+
+
+
+<!--/* OpenX Javascript Tag v2.8.10 */-->
+
+<!--/*
+  * Driftas - TX-3631- live
+  */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://vilkas.bltt.eu/openx/www/delivery/ajs.php':'http://vilkas.bltt.eu/openx/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=66");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://vilkas.bltt.eu/openx/www/delivery/ck.php?n=a8a0b814&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://vilkas.bltt.eu/openx/www/delivery/avw.php?zoneid=66&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a8a0b814' border='0' alt='' /></a></noscript>
+
+    </body>
+</html>
