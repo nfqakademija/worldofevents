@@ -8,10 +8,13 @@ class BilietaiEventParser
 
     /**
      * @param \DOMXPath $dom
+     * @param string|null $source_url
      */
-    public function __construct(\DOMXPath $dom)
+
+    public function __construct(\DOMXPath $dom, $source_url = null)
     {
         $this->dom = $dom;
+        $this->source_url = $source_url;
     }
 
     /**
@@ -82,7 +85,7 @@ class BilietaiEventParser
     {
         $price_range = $this->getNodeValueOrNull("//td[contains(@class, 'price')]");
 
-        if (!$this->isOnSale($price_range)) {
+        if (!$this->isOnSale()) {
             return null;
         }
 
@@ -166,15 +169,6 @@ class BilietaiEventParser
     public function getPlace()
     {
         return $this->getNodeValueOrNull($this->getDateAndLocationColumns(), 2);
-    }
-
-    /**
-     * Check whether event has all required information
-     * @return bool
-     */
-    public function isValid()
-    {
-        return $this->isOnSale();
     }
 
     /**

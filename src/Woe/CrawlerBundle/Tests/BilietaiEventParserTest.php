@@ -7,11 +7,6 @@ use Woe\CrawlerBundle\BilietaiEventParser;
 
 class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp()
-    {
-        $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
-    }
-
     public function testEventTitle()
     {
         $parser = $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
@@ -113,12 +108,6 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
         $expected = 'Naujoji koncertų salė';
         $actual = $parser->getPlace();
         $this->assertEquals($expected, $actual);
-    }
-
-    public function testEventIsValid()
-    {
-        $parser = $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
-        $this->assertTrue($parser->isValid());
     }
 
     public function testEventIsOnSale()
