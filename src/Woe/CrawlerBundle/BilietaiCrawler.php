@@ -11,11 +11,11 @@ class BilietaiCrawler
     private $current_page;
 
     /**
-     * Download current page and build DOM
+     * Download HTML of the current page and build DOM
      */
     public function fetchCurrentPage()
     {
-        $url = self::BILIETAI_ROOT_URL . "lt/category/0/" . $this->page_index;
+        $url = $this->getCurrentPageUrl();
         $this->current_page = $this->fetchUrl($url);
     }
 
@@ -44,27 +44,18 @@ class BilietaiCrawler
     public function getEvents()
     {
         $events = [];
-        $xpath = "//div[contains(@class, 'item_name')]/a[starts-with(@href, 'lt/event/')]";
-        /* @var \DOMElement $node */
-        foreach ($this->current_page->query($xpath) as $node) {
-            $event_url = self::BILIETAI_ROOT_URL . $node->getAttribute("href");
-            $event = new BilietaiEventParser($this->fetchUrl($event_url));
+        $xpath = "//td[contains(concat(' ', @class, ' '), ' list_item ')]";
 
-            if ($this->isValidEvent($event)) {
-                $event->setSourceUrl($event_url);
+        /* @var \DOMElement $node */
+        foreach ($this->getCurrentPage()->query($xpath) as $event_node) {
+            if ($this->isOnSale($event_node)) {
+                $event_url = $this->getEventUrl($event_node);
+                $event_dom = $this->fetchUrl($event_url);
+                $event = $this->getBilietaiEventParser($event_dom, $event_url);
                 $events[] = $event;
             }
         }
         return $events;
-    }
-
-    /**
-     * @param BilietaiEventParser $event
-     * @return bool
-     */
-    private function isValidEvent($event)
-    {
-        return $event->isValid();
     }
 
     /**
@@ -75,7 +66,7 @@ class BilietaiCrawler
     public function hasNextPage()
     {
         $xpath = "//*[contains(concat(' ', @class, ' '), ' next ')]";
-        return $this->current_page && $this->current_page->query($xpath)->length !== 0;
+        return $this->getCurrentPage() && $this->getCurrentPage()->query($xpath)->length !== 0;
     }
 
     /**
@@ -84,5 +75,60 @@ class BilietaiCrawler
     public function nextPage()
     {
         $this->page_index += 1;
+    }
+
+    /**
+     * Get URL of the current page
+     * @return string
+     */
+    public function getCurrentPageUrl()
+    {
+        return self::BILIETAI_ROOT_URL . "lt/category/0/" . $this->page_index;
+    }
+
+    /**
+     * Get DOM of the current page
+     * @return \DOMXPath
+     */
+    public function getCurrentPage()
+    {
+        return $this->current_page;
+    }
+
+    /**
+     * Returns true if event tickets are still purchasable
+     * @param \DOMNode $event_node
+     * @return bool
+     */
+    public function isOnSale($event_node)
+    {
+        $xpath = "div[contains(@class, 'wf')]//div[contains(@class, 'price_padd')]/strong";
+        $price_node = $this->getCurrentPage()->query($xpath, $event_node);
+        $price = $price_node->length !== 0 ? $price_node->item(0)->nodeValue : null;
+        return $price && strpos($price, 'parduota') === false;
+    }
+
+    /**
+     * Extract URL of event from DOM node
+     * @param \DOMNode $event_node
+     * @return string
+     */
+    public function getEventUrl($event_node)
+    {
+        $xpath = "div[contains(@class, 'list_item_cont')]//a[starts-with(@href, 'lt/event/')]";
+        $url_node = $this->getCurrentPage()->query($xpath, $event_node);
+        $url = $url_node->length !== 0 ? $url_node->item(0)->getAttribute("href") : null;
+        return self::BILIETAI_ROOT_URL . $url;
+    }
+
+    /**
+     * Get BilietaiEventParser object
+     * @param \DOMXpath $dom
+     * @param $source_url
+     * @return BilietaiEventParser
+     */
+    public function getBilietaiEventParser($dom, $source_url)
+    {
+        return new BilietaiEventParser($dom, $source_url);
     }
 }
