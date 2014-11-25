@@ -76,6 +76,4 @@ class BilietaiCrawlerTest extends \PHPUnit_Framework_TestCase
         $crawler->fetchCurrentPage();
         $this->assertFalse($crawler->hasNextPage());
     }
-
-    // test isOnSale and getEventUrl
 }

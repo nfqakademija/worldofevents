@@ -91,7 +91,9 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
     public function testEventDateRange()
     {
         $parser = $this->loadFixtureFromFile("bilietai_event_page_date_range.html");
-        $this->assertNull($parser->getDate());
+        $expected = new \DateTime('2014-11-21 00:00', new \DateTimeZone('Europe/Vilnius'));
+        $actual = $parser->getDate();
+        $this->assertEquals($expected, $actual);
     }
 
     public function testEventCityList()
