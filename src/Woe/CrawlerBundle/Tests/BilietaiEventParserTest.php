@@ -94,12 +94,16 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($parser->getDate());
     }
 
-    public function testEventCity()
+    public function testEventCityList()
     {
         $parser = $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
-        $expected = 'Vilnius';
-        $actual = $parser->getCity();
-        $this->assertEquals($expected, $actual);
+        $this->assertEquals('Vilnius', $parser->getCity());
+    }
+
+    public function testEventSingleCity()
+    {
+        $parser = $this->loadFixtureFromFile("bilietai_page_single_city.html");
+        $this->assertEquals('Jonava', $parser->getCity());
     }
 
     public function testEventPlace()

@@ -137,7 +137,7 @@ class BilietaiEventParser
      */
     public function getDate()
     {
-        $date = $this->getNodeValueOrNull($this->getDateAndLocationColumns());
+        $date = $this->getDateAndLocationColumn();
         // Matches 2014.11.21-23 date format
         if (preg_match('/(\d{4}\.\d{1,2}\.\d{1,2})\-\d{1,2}/', $date)) {
             // TODO: Discuss how to store this type of events
@@ -159,7 +159,7 @@ class BilietaiEventParser
      */
     public function getCity()
     {
-        return $this->getNodeValueOrNull($this->getDateAndLocationColumns(), 1);
+        return $this->getDateAndLocationColumn(1);
     }
 
     /**
@@ -168,7 +168,7 @@ class BilietaiEventParser
      */
     public function getPlace()
     {
-        return $this->getNodeValueOrNull($this->getDateAndLocationColumns(), 2);
+        return $this->getDateAndLocationColumn(2);
     }
 
     /**
@@ -182,12 +182,20 @@ class BilietaiEventParser
     }
 
     /**
-     * Get XPath for an active row with date, city and place columns
+     * Get XPath for an active (or the first) row with date, city and place columns
+     * @param $column
      * @return string
      */
-    private function getDateAndLocationColumns()
+    private function getDateAndLocationColumn($column = 0)
     {
         $xpath = "//table[@id='same_events']//tr[contains(concat(' ', @class, ' '), ' act ')]/td";
-        return $xpath;
+        $node = $this->getNodeValueOrNull($xpath, $column);
+
+        if (is_null($node)) {
+            $xpath = "//table[@id='same_events']//tr/td";
+            $node = $this->getNodeValueOrNull($xpath, $column);
+        }
+
+        return $node;
     }
 }
