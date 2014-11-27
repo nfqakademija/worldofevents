@@ -1,14 +1,22 @@
 <?php
 
-namespace Woe\CrawlerBundle;
+namespace Woe\CrawlerBundle\Services\Crawler;
+
+use Woe\CrawlerBundle\Services\Parser\BilietaiEventParser;
 
 class BilietaiCrawler
 {
     const BILIETAI_ROOT_URL = "http://www.bilietai.lt/";
 
+    private $parser;
     private $page_index = 1;
     /* @var \DOMXPath $current_page */
     private $current_page;
+
+    public function __construct(BilietaiEventParser $parser)
+    {
+        $this->parser = $parser;
+    }
 
     /**
      * Download HTML of the current page and build DOM
@@ -51,8 +59,8 @@ class BilietaiCrawler
             if ($this->isOnSale($event_node)) {
                 $event_url = $this->getEventUrl($event_node);
                 $event_dom = $this->fetchUrl($event_url);
-                $event = $this->getBilietaiEventParser($event_dom, $event_url);
-                $events[] = $event;
+
+                $events[] = clone $this->getBilietaiEventParser($event_dom, $event_url);
             }
         }
         return $events;
@@ -127,8 +135,10 @@ class BilietaiCrawler
      * @param $source_url
      * @return BilietaiEventParser
      */
-    public function getBilietaiEventParser($dom, $source_url)
+    public function getBilietaiEventParser(\DOMXpath $dom, $source_url)
     {
-        return new BilietaiEventParser($dom, $source_url);
+        $this->parser->setDom($dom);
+        $this->parser->setSourceUrl($source_url);
+        return $this->parser;
     }
 }

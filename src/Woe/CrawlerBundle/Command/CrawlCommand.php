@@ -6,7 +6,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Woe\CrawlerBundle\BilietaiCrawler;
 
 class CrawlCommand extends ContainerAwareCommand
 {
@@ -19,7 +18,7 @@ class CrawlCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $crawler = new BilietaiCrawler();
+        $crawler = $this->getContainer()->get('woe_crawler.bilietai_crawler');
 
         do {
             $crawler->fetchCurrentPage();
@@ -28,9 +27,6 @@ class CrawlCommand extends ContainerAwareCommand
             foreach ($events as $event) {
                 $output->writeln($event->getSourceUrl());
                 $output->writeln($event->getTitle());
-                $output->writeln($event->getPriceRange());
-                // save to DB
-                // ...
             }
 
             $crawler->nextPage();

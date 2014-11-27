@@ -1,20 +1,22 @@
 <?php
 
-namespace Woe\CrawlerBundle;
+namespace Woe\CrawlerBundle\Services\Parser;
 
 class BilietaiEventParser
 {
+    /* @var string $source_url */
     protected $source_url;
 
-    /**
-     * @param \DOMXPath $dom
-     * @param string|null $source_url
-     */
+    /* @var \DOMXpath $dom */
+    protected $dom;
 
-    public function __construct(\DOMXPath $dom, $source_url = null)
+    /**
+     * Set DOM object
+     * @param \DOMXPath $dom
+     */
+    public function setDom(\DOMXPath $dom)
     {
         $this->dom = $dom;
-        $this->source_url = $source_url;
     }
 
     /**
@@ -118,8 +120,11 @@ class BilietaiEventParser
      */
     public function getSourceUrl()
     {
-        return $this->source_url ? $this->source_url
-                                 : $this->getNodeValueOrNull("//meta[@property='og:url']/@content");
+        if (!$this->source_url) {
+            $this->source_url = $this->getNodeValueOrNull("//meta[@property='og:url']/@content");
+        }
+
+        return $this->source_url;
     }
 
     /**
@@ -139,9 +144,9 @@ class BilietaiEventParser
     {
         $date = $this->getDateAndLocationColumn();
         // Matches 2014.11.21-23 date format
-        if (preg_match('/(\d{4}\.\d{1,2}\.\d{1,2})\-\d{1,2}/', $date)) {
-            // TODO: Discuss how to store this type of events
-            $date = null;
+        if (preg_match('/(\d{4}\.\d{1,2}\.\d{1,2})\-\d{1,2}/', $date, $matches)) {
+            $date = str_replace('.', '-', $matches[1]);
+            $date = new \DateTime($date, new \DateTimeZone('Europe/Vilnius'));
         // Matches 2014-11-21 penktadienis 18:00 val. date format
         } elseif (preg_match('/(\d{4}\-\d{1,2}\-\d{1,2}) [^\s]+ (\d{1,2}:\d{1,2}) val\./', $date, $matches)) {
             $date = $matches[1] . " " . $matches[2];

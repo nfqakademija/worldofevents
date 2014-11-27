@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Woe\CrawlerBundle\Tests;
+namespace Woe\CrawlerBundle\Tests\Unit\Services\Parser;
 
-use Woe\CrawlerBundle\BilietaiEventParser;
+use Woe\CrawlerBundle\Services\Parser\BilietaiEventParser;
 
 class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
 {
@@ -134,6 +134,8 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
         $dom = new \DOMDocument();
         @$dom->loadHTML($html);
         $domxpath = new \DOMXPath($dom);
-        return new BilietaiEventParser($domxpath);
+        $parser = new BilietaiEventParser();
+        $parser->setDom($domxpath);
+        return $parser;
     }
 }
