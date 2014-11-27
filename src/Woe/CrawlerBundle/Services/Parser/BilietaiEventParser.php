@@ -2,23 +2,8 @@
 
 namespace Woe\CrawlerBundle\Services\Parser;
 
-class BilietaiEventParser
+class BilietaiEventParser extends EventParser
 {
-    /* @var string $source_url */
-    protected $source_url;
-
-    /* @var \DOMXpath $dom */
-    protected $dom;
-
-    /**
-     * Set DOM object
-     * @param \DOMXPath $dom
-     */
-    public function setDom(\DOMXPath $dom)
-    {
-        $this->dom = $dom;
-    }
-
     /**
      * Get title
      * @return null|string
@@ -26,19 +11,6 @@ class BilietaiEventParser
     public function getTitle()
     {
         return $this->getNodeValueOrNull("//h1");
-    }
-
-    /**
-     * Get content of a node
-     *
-     * @param $query
-     * @param int $index
-     * @return null|string
-     */
-    private function getNodeValueOrNull($query, $index = 0)
-    {
-        $node = $this->dom->query($query);
-        return $node->length !== 0 ? trim($node->item($index)->nodeValue) : null;
     }
 
     /**
@@ -85,12 +57,11 @@ class BilietaiEventParser
      */
     private function getPriceRange()
     {
-        $price_range = $this->getNodeValueOrNull("//td[contains(@class, 'price')]");
-
         if (!$this->isOnSale()) {
             return null;
         }
 
+        $price_range = $this->getNodeValueOrNull("//td[contains(@class, 'price')]");
         $price_range = preg_replace('/[^\d\-\.]+/i', '', $price_range);
 
         return $price_range;
@@ -112,28 +83,6 @@ class BilietaiEventParser
     public function getPriceMax()
     {
         return explode('-', $this->getPriceRange())[1];
-    }
-
-    /**
-     * Get URL of the source page
-     * @return null|string
-     */
-    public function getSourceUrl()
-    {
-        if (!$this->source_url) {
-            $this->source_url = $this->getNodeValueOrNull("//meta[@property='og:url']/@content");
-        }
-
-        return $this->source_url;
-    }
-
-    /**
-     * Set origin URL
-     * @param $source_url
-     */
-    public function setSourceUrl($source_url)
-    {
-        $this->source_url = $source_url;
     }
 
     /**

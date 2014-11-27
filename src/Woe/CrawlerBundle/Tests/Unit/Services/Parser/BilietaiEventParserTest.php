@@ -72,14 +72,6 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    public function testSourceUrlFromTheDom()
-    {
-        $parser = $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
-        $expected = 'http://www.bilietai.lt/event/22830';
-        $actual = $parser->getSourceUrl();
-        $this->assertEquals($expected, $actual);
-    }
-
     public function testEventDate()
     {
         $parser = $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
