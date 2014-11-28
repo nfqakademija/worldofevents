@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * City
  *
  * @ORM\Table(name="cities")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Woe\EventBundle\Entity\CityRepository")
  */
 class City
 {

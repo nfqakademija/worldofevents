@@ -12,4 +12,29 @@ use Doctrine\ORM\EntityRepository;
  */
 class LocationRepository extends EntityRepository
 {
+    /**
+     * Find location by name, address and City or create new if it does not exist
+     *
+     * @param string $name
+     * @param string $address
+     * @param City $city
+     * @return Location
+     */
+    public function findOrCreateLocation($name, $address, $city)
+    {
+        $location = $this->findOneBy(array(
+            'name'      => $name,
+            'address'   => $address,
+            'city'      => $city->getId()
+        ));
+
+        if (is_null($location)) {
+            $location = new Location();
+            $location->setName($name);
+            $location->setAddress($address);
+            $location->setCity($city);
+        }
+
+        return $location;
+    }
 }
