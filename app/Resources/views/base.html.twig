@@ -13,8 +13,9 @@
 	<!-- StyleSheets (compiled) -->
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('required/jquery.dropdown.css') }}">
     {% endblock %}
-
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -27,16 +28,27 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
+	<!-- Navbar (found in ~/header) -->
+<div class="container col-md-12">
+	{% block navbar %}
+	{% endblock %}
+</div>
+
 <div class="container">
 
+	<!-- Header -->
+
+    {% block header %}
+    {% endblock %}
+	
 	<!-- Body -->
     {% block body %}
     {% endblock %}
-	
+		
 	<!-- Footer -->
     {% block footer %}
-	<footer><p>&copy; World of Events 2014</p></footer>
     {% endblock %}
+
 </div>
 
 	<!-- JavaScripts -->
@@ -44,6 +56,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/info-hover.js') }}"></script>
+    <script src="{{ asset('required/jquery.dropdown.min.js') }}"></script>
 {% endblock %}
+    
 </body>
 </html>

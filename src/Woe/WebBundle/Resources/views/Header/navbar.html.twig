@@ -1,0 +1,35 @@
+{% block navbar %}
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-extra" role="navigaton">
+	<div class="container">	
+            <div class="navbar-header"><a href="#">The World of Events</a></div>
+	    <ul>
+	        <li>
+                <a data-dropdown="#usr-drp">
+                    <img src="http://www.campaignrep.com/sites/default/files/sitewide/profile-default.png" class="square user-icon">
+                </a>
+				<div id="usr-drp" class="dropdown dropdown-tip">
+                    <ul class="dropdown-menu">
+						<li>a</li>
+						<li>b</li>
+						<li>c</li>
+						<li>d</li>
+					</ul>
+                </div>
+			</li>
+	        <li>
+                <a data-dropdown="#ntf-drp">
+                    <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/43.Bell-128.png" class="square notifications-icon">
+                </a>
+                <div class="dropdown dropdown-tip">
+					<ul class="dropdown-menu">
+						<li>a</li>
+						<li>b</li>
+						<li>c</li>
+						<li>d</li>
+					</ul>
+                </div>
+			</li>
+	    </ul>
+        </div>
+    </nav>
+{% endblock %} 

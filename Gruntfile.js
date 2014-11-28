@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 
     // Configurable variables
     var config = {
-        in: 'app/Resources',
+        in: 'src/Woe/WebBundle/Resources/',
         out: 'web'
     };
 

@@ -1,3 +1,11 @@
 woe_web_homepage:
-    path:     /
+    path: /
     defaults: { _controller: WoeWebBundle:Default:index }
+
+woe_web_event:
+    path: /event/{id}
+    defaults: { _controller: WoeWebBundle:Default:event }
+
+woe_web_admin:
+    path: /admin
+    defaults: { _controller: WoeWebBundle:Default:admin }

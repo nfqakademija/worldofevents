@@ -4,5 +4,8 @@
     ],
     "jquery.js": [
         "../../../bower_components/jquery/dist/jquery.min.js"
+    ],
+    "info-hover.js": [
+	"info-hover.js"
     ]
 }
