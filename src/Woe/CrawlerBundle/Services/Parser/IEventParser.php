@@ -92,4 +92,10 @@ interface IEventParser
      * @param $source_url
      */
     public function setSourceUrl($source_url);
+
+    /**
+     * Check required fields' presence
+     * @return bool
+     */
+    public function isValid();
 }

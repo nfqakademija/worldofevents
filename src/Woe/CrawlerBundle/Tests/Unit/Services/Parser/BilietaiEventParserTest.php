@@ -120,6 +120,18 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($parser->isOnSale());
     }
 
+    public function testRegularEventIsValid()
+    {
+        $parser = $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
+        $this->assertTrue($parser->isValid());
+    }
+
+    public function testEventSpecialsAreNotValid()
+    {
+        $parser = $this->loadFixtureFromFile("bilietai_event_page_draugadienis.html");
+        $this->assertFalse($parser->isValid());
+    }
+
     private function loadFixtureFromFile($file)
     {
         $html = file_get_contents(__DIR__ . "/Fixtures/" . $file);

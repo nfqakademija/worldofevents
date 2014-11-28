@@ -55,4 +55,14 @@ abstract class EventParser implements IEventParser
     {
         $this->source_url = $source_url;
     }
+
+    /**
+     * Check required fields' presence
+     * @return bool
+     */
+    public function isValid()
+    {
+        return $this->getTitle() && $this->getDate() &&
+            $this->isOnSale() && $this->getPlace();
+    }
 }
