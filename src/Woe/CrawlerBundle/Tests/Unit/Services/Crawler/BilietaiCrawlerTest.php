@@ -99,4 +99,19 @@ class BilietaiCrawlerTest extends \PHPUnit_Framework_TestCase
         $crawler->fetchCurrentPage();
         $this->assertFalse($crawler->hasNextPage());
     }
+
+    public function testEventUrlOfADomNode()
+    {
+        $crawler = $this->getMockBuilder('Woe\CrawlerBundle\Services\Crawler\BilietaiCrawler')
+            ->disableOriginalConstructor()
+            ->setMethods(array('getCurrentPageUrl'))
+            ->getMock();
+        $crawler->method('getCurrentPageUrl')->willReturn(__DIR__ . "/Fixtures/" . 'bilietai_event_list.html');
+        $crawler->fetchCurrentPage();
+
+        $node = $crawler->getCurrentPage()->query("//td[contains(@class, 'list_item')]")->item(0);
+        $actual = $crawler->getEventUrl($node);
+
+        $this->assertEquals('http://www.bilietai.lt/lt/event/22289', $actual);
+    }
 }

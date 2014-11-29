@@ -93,7 +93,6 @@ abstract class Crawler implements ICrawler
         $events = [];
         $xpath = $this->getXpathEventNodes();
 
-        /* @var \DOMElement $node */
         foreach ($this->getCurrentPage()->query($xpath) as $event_node) {
             if ($this->isOnSale($event_node)) {
                 $event_url = $this->getEventUrl($event_node);
@@ -127,7 +126,7 @@ abstract class Crawler implements ICrawler
     {
         $xpath = $this->getXpathEventUrl();
         $url_node = $this->getCurrentPage()->query($xpath, $event_node);
-        $url = $url_node->length !== 0 ? $url_node->item(0)->getAttribute("href") : null;
+        $url = $url_node->length !== 0 ? $url_node->item(0)->getAttribute("href") : '';
         return $this->getSiteRootUrl() . $url;
     }
 }
