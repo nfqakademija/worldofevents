@@ -27,19 +27,21 @@ class CrawlCommand extends ContainerAwareCommand
             $events = $crawler->getEvents();
 
             foreach ($events as $event) {
-                if ($event->isValid()) {
-                    $output->writeln($event->getSourceUrl());
-                    $output->writeln($event->getTitle());
-                    $this->saveEvent($event);
-                }
+                $status = $this->handleEvent($event);
+                $output->writeln($status);
             }
 
             $crawler->nextPage();
         } while ($crawler->hasNextPage());
 
-        $output->writeln("It works!");
+        $output->writeln("Done!");
     }
 
+    /**
+     * Save event to database
+     *
+     * @param EventParser $parser
+     */
     protected function saveEvent(EventParser $parser)
     {
         $event = new Event();
@@ -71,5 +73,34 @@ class CrawlCommand extends ContainerAwareCommand
         $em->persist($event_city);
         $em->persist($event_location);
         $em->flush();
+    }
+
+    /**
+     * Process and return status message about the event
+     *
+     * @param $event
+     * @return string
+     */
+    protected function handleEvent($event)
+    {
+        $stored_event = $this->getContainer()->get('doctrine')->getRepository('WoeEventBundle:Event')
+            ->findOneBy(array('source_url' => $event->getSourceUrl()));
+
+        if (!is_null($stored_event)) {
+            $output_color = "green";
+            $output_status = "[SKIPPED]";
+        } elseif ($event->isValid()) {
+            $output_color = "cyan";
+            $output_status = "[ADDED]";
+            $this->saveEvent($event);
+        } else {
+            $output_color = "red";
+            $output_status = "[ERROR]";
+        }
+
+        $output_format = '<fg=%s>%9s - %s - %s</fg=%1$s>';
+        $status = sprintf($output_format, $output_color, $output_status, $event->getSourceUrl(), $event->getTitle());
+
+        return $status;
     }
 }
