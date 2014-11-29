@@ -132,6 +132,19 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($parser->isValid());
     }
 
+    public function testEventSpecialsDoNotHavePriceMinAndMax()
+    {
+        $parser = $this->loadFixtureFromFile("bilietai_event_page_draugadienis.html");
+        $this->assertNull($parser->getPriceMin());
+        $this->assertNull($parser->getPriceMax());
+    }
+
+    public function testEventPageWithoutDate()
+    {
+        $parser = $this->loadFixtureFromFile("bilietai_event_page_coupon.html");
+        $this->assertNull($parser->getDate());
+    }
+
     private function loadFixtureFromFile($file)
     {
         $html = file_get_contents(__DIR__ . "/Fixtures/" . $file);

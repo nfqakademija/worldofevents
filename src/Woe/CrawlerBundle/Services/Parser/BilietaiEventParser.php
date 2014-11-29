@@ -64,25 +64,29 @@ class BilietaiEventParser extends EventParser
         $price_range = $this->getNodeValueOrNull("//td[contains(@class, 'price')]");
         $price_range = preg_replace('/[^\d\-\.]+/i', '', $price_range);
 
-        return $price_range;
+        $prices = explode('-', $price_range);
+
+        return count($prices) === 2 ? $prices : null;
     }
 
     /**
      * Get minimum price
-     * @return mixed
+     * @return null|string
      */
     public function getPriceMin()
     {
-        return explode('-', $this->getPriceRange())[0];
+        $price_range = $this->getPriceRange();
+        return !is_null($price_range) ? $price_range[0] : null;
     }
 
     /**
      * Get maximum price
-     * @return mixed
+     * @return null|string
      */
     public function getPriceMax()
     {
-        return explode('-', $this->getPriceRange())[1];
+        $price_range = $this->getPriceRange();
+        return !is_null($price_range) ? $price_range[1] : null;
     }
 
     /**
