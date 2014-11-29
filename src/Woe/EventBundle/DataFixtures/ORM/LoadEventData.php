@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Woe\EventBundle\Entity\Event;
+use Woe\EventBundle\Entity\Location;
 
 class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -32,8 +33,40 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
             )
         );
 
+        $event2 = $this->createMinimalEvent(
+            "LIEPSNOJANTIS KALĖDŲ LEDAS 2014",
+            new \DateTime("2014-12-25 19:00"),
+            $this->getReference('event-location')
+        );
+
+        $event3 = $this->createMinimalEvent(
+            'Andrius Mamontovas. Tas bičas iš "Fojė"',
+            new \DateTime("2014-12-26 19:00"),
+            $this->getReference('event-location')
+        );
+
         $manager->persist($event);
+        $manager->persist($event2);
+        $manager->persist($event3);
         $manager->flush();
+    }
+
+    /**
+     * Create event with basic required information
+     *
+     * @param $title
+     * @param \DateTime $date
+     * @param Location $location
+     * @return Event
+     */
+    protected function createMinimalEvent($title, \DateTime $date, Location $location)
+    {
+        $event = new Event();
+        $event->setTitle($title);
+        $event->setDate($date);
+        $event->setLocation($location);
+
+        return $event;
     }
 
     public function getOrder()

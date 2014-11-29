@@ -9,16 +9,19 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
-        return $this->render('WoeWebBundle:Body:index.html.twig');
+        $events = $this->getDoctrine()->getManager()
+            ->getRepository('WoeEventBundle:Event')
+            ->findAll();
+        return $this->render('WoeWebBundle:Body:index.html.twig', array('events' => $events));
     }
 
     public function eventAction($id)
     {
-	return $this->render('WoeWebBundle:Body:event.html.twig');
+        return $this->render('WoeWebBundle:Body:event.html.twig');
     }
 
     public function adminAction()
     {
-   	return $this->render('WoeWebBundle:Body:admin.html.twig');
+        return $this->render('WoeWebBundle:Body:admin.html.twig');
     }
 }
