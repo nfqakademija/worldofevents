@@ -44,4 +44,73 @@ class DefaultControllerTest extends WebTestCase
             array(2, 'Andrius Mamontovas. Tas bičas iš "Fojė"')
         );
     }
+
+    public function testEventPageLoadsSuccessfully()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
+
+    public function testEventPageForNonExistingEvent()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/999');
+        $this->assertTrue($client->getResponse()->isNotFound());
+    }
+
+    public function testEventPageHasEventTitle()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $this->assertCount(1, $crawler->filter('h1:contains("Duis aute irure dolor in reprehenderit")'));
+    }
+
+    public function testEventPageHasEventDescription()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $expected = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
+        $this->assertEquals($expected, $crawler->filter('.event-description-text')->text());
+    }
+
+    public function testEventPageHasEventInformation()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $expected = "Ut enim ad minim veniam, quis nostrud exercitation ullamco";
+        $this->assertEquals($expected, $crawler->filter('.event-details')->text());
+    }
+
+    public function testEventPageHasEventTicketsPrice()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $expected = "Kaina: 10.00 - 20.00 Lt";
+        $this->assertEquals($expected, $crawler->filter('.event-price')->text());
+    }
+
+    public function testEventPageHasEventDate()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $expected = "Renginio pradžia: 2014-12-11 17:00";
+        $this->assertEquals($expected, $crawler->filter('.event-date')->text());
+    }
+
+    public function testEventPageHasEventPlace()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $expected = "Vieta: NFQ Akademija (Konstitucijos pr. 7)";
+        $this->assertEquals($expected, $crawler->filter('.event-place')->text());
+    }
+
+    public function testEventPageHasEventSourceUrl()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $expected = "http://fake.dev/event/15";
+        $this->assertEquals($expected, $crawler->filter('.event-tickets-button')->attr('href'));
+    }
 }

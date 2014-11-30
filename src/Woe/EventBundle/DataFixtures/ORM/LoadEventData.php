@@ -14,7 +14,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
     {
         $event = new Event();
         $event->setTitle("Duis aute irure dolor in reprehenderit");
-        $event->setDate(new \DateTime('now'));
+        $event->setDate(new \DateTime('2014-12-11 17:00'));
         $event->setLocation($this->getReference('event-location'));
         $event->setPriceMin("10.00");
         $event->setPriceMax("20.00");

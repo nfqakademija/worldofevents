@@ -17,7 +17,15 @@ class DefaultController extends Controller
 
     public function eventAction($id)
     {
-        return $this->render('WoeWebBundle:Body:event.html.twig');
+        $event = $this->getDoctrine()->getManager()
+            ->getRepository('WoeEventBundle:Event')
+            ->find($id);
+
+        if (!$event) {
+            throw $this->createNotFoundException('Renginys nerastas');
+        }
+
+        return $this->render('WoeWebBundle:Body:event.html.twig', array('event' => $event));
     }
 
     public function adminAction()
