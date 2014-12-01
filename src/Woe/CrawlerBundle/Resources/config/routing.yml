@@ -1,3 +1,0 @@
-woe_crawler_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: WoeCrawlerBundle:Default:index }
