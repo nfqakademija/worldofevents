@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Woe\EventBundle\WoeEventBundle(),
             new Woe\FilterBundle\WoeFilterBundle(),
             new Woe\CrawlerBundle\WoeCrawlerBundle(),
+            new Woe\MapperBundle\WoeMapperBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
