@@ -4,45 +4,44 @@
 $fontstack_header: 'atlantico', verdana, arial;
 
 .navbar-extra {
+    height: 30px;
 
-height: 30px;
-	
-	li {
-	list-style-type: none;	
-	}
+    li {
+        list-style-type: none;
+    }
 
-	.navbar-header {
-	font-size: 27px;
-	text-align: center;
-	
-		a {
-		font-family: $fontstack_header;
-		color: #ffffff;
-		text-decoration: none;
-		}	
-	}
-		
-	.square {
-	border: 1px solid #000000;
-	display: inline-block;
-	float: right;
-	height: 50px;
-	width: 50px;
-	background-color: #ffffff;
+    .navbar-header {
+        font-size: 27px;
+        text-align: center;
 
-		.user-icon {
-		background-image: url("http://www.campaignrep.com/sites/default/files/sitewide/profile-default.png");
-		background-color: inherit;	
-		}
+        a {
+            font-family: $fontstack_header;
+            color: #ffffff;
+            text-decoration: none;
+        }
+    }
 
-		.notifications-icon {
-		background-image: url("https://cdn4.iconfinder.com/data/icons/48-bubbles/48/43.Bell-128.png"); 
-		background-color: inherit;
-		}
+    .square {
+        border: 1px solid #000000;
+        display: inline-block;
+        float: right;
+        height: 50px;
+        width: 50px;
+        background-color: #ffffff;
 
-		img {
-		max-width: 100%;
-		max-height: 100%;
-		}
-	}
+        .user-icon {
+            background-image: url("http://www.campaignrep.com/sites/default/files/sitewide/profile-default.png");
+            background-color: inherit;
+        }
+
+        .notifications-icon {
+            background-image: url("https://cdn4.iconfinder.com/data/icons/48-bubbles/48/43.Bell-128.png");
+            background-color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
 }
