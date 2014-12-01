@@ -1,7 +1,7 @@
 <?php
 namespace Woe\CrawlerBundle\Services\Parser;
 
-interface IEventParser
+interface EventParserInterface
 {
     /**
      * Get title

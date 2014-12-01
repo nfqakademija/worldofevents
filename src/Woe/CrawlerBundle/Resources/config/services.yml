@@ -1,6 +1,6 @@
 services:
     woe_crawler.bilietai_crawler:
-        class: Woe\CrawlerBundle\Services\Crawler\BilietaiCrawler
+        class: Woe\CrawlerBundle\Services\AbstractCrawler\BilietaiCrawler
         arguments:
             - "@woe_crawler.bilietai_parser"
 

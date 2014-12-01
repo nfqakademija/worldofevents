@@ -1,7 +1,7 @@
 <?php
 namespace Woe\CrawlerBundle\Services\Parser;
 
-abstract class EventParser implements IEventParser
+abstract class EventParser implements EventParserInterface
 {
     /* @var string $source_url */
     protected $source_url;

@@ -3,7 +3,7 @@ namespace Woe\CrawlerBundle\Services\Crawler;
 
 use Woe\CrawlerBundle\Services\Parser\EventParser;
 
-interface ICrawler
+interface CrawlerInterface
 {
     /**
      * Get URL of the current page

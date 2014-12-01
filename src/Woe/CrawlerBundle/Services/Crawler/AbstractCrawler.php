@@ -4,7 +4,7 @@ namespace Woe\CrawlerBundle\Services\Crawler;
 
 use Woe\CrawlerBundle\Services\Parser\EventParser;
 
-abstract class Crawler implements ICrawler
+abstract class AbstractCrawler implements CrawlerInterface
 {
     protected $page_index = 1;
     protected $parser;

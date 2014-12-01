@@ -2,7 +2,7 @@
 
 namespace Woe\CrawlerBundle\Services\Crawler;
 
-class BilietaiCrawler extends Crawler
+class BilietaiCrawler extends AbstractCrawler
 {
     /**
      * Get URL of the current page
