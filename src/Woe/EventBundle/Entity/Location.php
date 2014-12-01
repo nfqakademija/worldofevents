@@ -60,7 +60,7 @@ class Location
     /**
      * @var City
      *
-     * @ORM\ManyToOne(targetEntity="City", inversedBy="location")
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="locations")
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id", nullable=false)
      */
     private $city;
