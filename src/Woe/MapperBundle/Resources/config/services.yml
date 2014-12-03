@@ -1,1 +1,3 @@
 services:
+    woe_mapper.text_normalizer:
+        class: Woe\MapperBundle\Services\Mapper\TextNormalizer
