@@ -23,9 +23,7 @@ class MapCommand extends ContainerAwareCommand
         $em = $doctrine->getManager();
 
         $text_normalizer = $this->getContainer()->get('woe_mapper.text_normalizer');
-
-        $event_repository = $doctrine->getRepository('WoeEventBundle:Event');
-        $events = $event_repository->findAll();
+        $events = $doctrine->getRepository('WoeEventBundle:Event')->findAll();
 
         foreach ($events as $event) {
             $text = $event->getTitle();
@@ -33,13 +31,32 @@ class MapCommand extends ContainerAwareCommand
                 ->findBy(array('name' => $text_normalizer->normalize($text)));
 
             foreach ($keywords as $keyword) {
-                $tags = $keyword->getTags();
-                // TODO: don't add duplicate tags
+                $tags = $this->getNewEventTags($event, $keyword);
                 $event->addTags($tags);
                 $em->persist($event);
             }
         }
 
         $em->flush();
+    }
+
+    /**
+     * Get new event tags
+     *
+     * @param $event
+     * @param $keyword
+     * @return mixed
+     */
+    protected function getNewEventTags($event, $keyword)
+    {
+        $event_tags = $event->getTags()->toArray();
+        $tags = $keyword->getTags()->filter(
+            function ($tag) use ($event_tags) {
+                if (!in_array($tag, $event_tags)) {
+                    return true;
+                }
+            }
+        );
+        return $tags;
     }
 }
