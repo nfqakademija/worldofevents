@@ -18,17 +18,17 @@
         </div>
         <div class="col-md-7">
             <div class="frame event-description">
-                <div class="event-description-text">{{ event.description }}</div>
+                <div class="event-description-text">{{ event.description|nl2br }}</div>
             </div>
 
             <div id="event-info" class="frame">
-                <div class="event-details">{{ event.information }}</div>
+                <div class="event-details">{{ event.information|nl2br }}</div>
             </div>
         </div>
 
         <div class="col-md-5">
             <div class="event-image">
-                <img src="http://placehold.it/440x253">
+                <img src="{{ event.image }}">
             </div>
         </div>
     </div>

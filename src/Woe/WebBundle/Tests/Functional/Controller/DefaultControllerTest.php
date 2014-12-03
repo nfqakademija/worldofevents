@@ -113,4 +113,25 @@ class DefaultControllerTest extends WebTestCase
         $expected = "http://fake.dev/event/15";
         $this->assertEquals($expected, $crawler->filter('.event-tickets-button')->attr('href'));
     }
+
+    public function testEventDescriptionHasLikeBreaks()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/2');
+        $this->assertCount(2, $crawler->filter('.event-description-text > br'));
+    }
+
+    public function testEventInformationHasLikeBreaks()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/2');
+        $this->assertCount(3, $crawler->filter('.event-details > br'));
+    }
+
+    public function testEventImageUrl()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $this->assertEquals('image.jpg', $crawler->filter('.event-image > img')->attr('src'));
+    }
 }

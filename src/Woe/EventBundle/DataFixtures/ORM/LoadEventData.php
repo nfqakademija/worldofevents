@@ -39,6 +39,9 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
             $this->getReference('event-location')
         );
 
+        $event2->setDescription("a\nb\nc");
+        $event2->setInformation("a\nb\nc\nd");
+
         $event3 = $this->createMinimalEvent(
             'Andrius Mamontovas. Tas bičas iš "Fojė"',
             new \DateTime("2014-12-26 19:00"),
