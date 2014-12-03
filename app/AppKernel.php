@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Woe\FilterBundle\WoeFilterBundle(),
             new Woe\CrawlerBundle\WoeCrawlerBundle(),
             new Woe\MapperBundle\WoeMapperBundle(),
+            new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
