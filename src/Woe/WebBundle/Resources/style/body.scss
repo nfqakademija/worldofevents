@@ -1,10 +1,3 @@
-@import "compass/css3/font-face";
-
-@include font-face("gen", font-files("../fonts/gen-light/Gen-Light-5.ttf"));
-@include font-face("station", font-files("../fonts/station.ttf"));
-
-$fontstack_descripion: 'gen-light', arial;
-$fontstack_names: 'station', arial;
 $divider-color: #dddddd;
 
 .frame {
@@ -29,37 +22,41 @@ $divider-color: #dddddd;
 
 .element-holder {
     background-color: #F0F0F0;
-    // border-radius: 0px 0px 7px 7px;
 
     .event-element {
         padding-top: 10px;
         padding-bottom: 10px;
-
         display: inline-block;
+    }
 
-        .event-info {
-            background-color: #000000;
+    .event-info {
+        background-color: #eaeaea;
+        width: 331px;
+        height: 190px;
+        border: solid #E3E3E3 1px;
+        .event-image {
             width: 100%;
-            height: 15em;
-            border-top: solid #E3E3E3 1px;
-            border-left: solid #E3E3E3 1px;
-            border-right: solid #E3E3E3 1px;
-            .event-image {
-                height: 15em;
-                width: 100%;
+            height: 100%;
+        }
+    }
+
+    .event-title {
+        width: 100%;
+        padding-bottom: 5px;
+        font-size: 1.2em;
+        color: #1c1c1c;
+
+        a {
+            color: #383838;
+
+            &:hover {
+                color: #000000;
             }
         }
+    }
 
-        .name-plate {
-            width: 100%;
-            font-size: 1.3em;
-            text-align: center;
-            background-color: #2B2B2B;
-            color: #F8F8F8;
-            border-top: 2px #373737 solid;
-            border-radius: 0px 0px 5px 5px;
-            font-family: $fontstack_names;
-        }
+    .event-icons {
+        padding-top: 10px;
     }
 }
 
@@ -74,7 +71,6 @@ $divider-color: #dddddd;
         border-bottom: 1px $divider-color solid;
 
         h1 {
-            font-family: $fontstack_names;
             font-size: 31px;
             color: #252525;
             padding: 0px 0px 7px 0 xp;
@@ -88,7 +84,8 @@ $divider-color: #dddddd;
         border-radius: 5px;
 
         img {
-            width: 100%;
+            width: 440px;
+            height: 253px;
             border-radius: inherit;
         }
 
