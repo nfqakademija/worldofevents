@@ -39,6 +39,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
             $this->getReference('event-location')
         );
 
+        $event2->setImage('http://www.bilietai.lt/event-big-photo/21512.png');
         $event2->setDescription("a\nb\nc");
         $event2->setInformation("a\nb\nc\nd");
 
@@ -47,6 +48,8 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
             new \DateTime("2014-12-26 19:00"),
             $this->getReference('event-location')
         );
+
+        $event3->setImage('http://www.bilietai.lt/event-big-photo/22830.png');
 
         $manager->persist($event);
         $manager->persist($event2);

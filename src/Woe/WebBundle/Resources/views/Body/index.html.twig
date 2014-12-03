@@ -1,20 +1,10 @@
 {% extends 'WoeWebBundle::layout.html.twig' %}
 
 {% block body %}
-    <div class="col-md-12 map-holder container">
-        <div class="frame-map">
-            <iframe class="main-map" frameborder="0"
-                    src="https://www.google.com/maps/embed/v1/place?q=7%20Konstitucijos%20prospektas%2C%20Vilnius%2C%20Vilnius%20County%2C%20Lithuania&key=AIzaSyCkHybBkZ0NKpYtWBtGI_yd31MKaT_E85Q"></iframe>
-        </div>
-    </div>
-
     <div class="col-md-12 element-holder container">
         <div class="frame">
             {% for event in events %}
-                <div class="event-element col-md-4">
-                    <div class="event-info"><img src="#" class="event-image"></div>
-                    <div class="name-plate">{{ event.title }}</div>
-                </div>
+                {{ include('@WoeWeb/Event/eventCard.html.twig', {'event': event}) }}
             {% endfor %}
         </div>
     </div>

@@ -19,7 +19,7 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($crawler->filter('title:contains("World of Events")')->count() > 0);
     }
 
-    public function testIneexPageEventElementsCount()
+    public function testIndexPageEventElementsCount()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
@@ -33,7 +33,14 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals($expected, $crawler->filter('div.event-element > div.name-plate')->eq($n)->text());
+        $this->assertEquals($expected, $crawler->filter('div.event-element div.event-title a')->eq($n)->text());
+    }
+
+    public function testIndexPageEventsHaveLinksToDetails()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertEquals('/event/1', $crawler->filter('.event-element a')->attr('href'));
     }
 
     public function numberedTitlesProvider()
