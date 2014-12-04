@@ -1,0 +1,8 @@
+services:
+    woe_crawler.bilietai_crawler:
+        class: Woe\CrawlerBundle\Services\Crawler\BilietaiCrawler
+        arguments:
+            - "@woe_crawler.bilietai_parser"
+
+    woe_crawler.bilietai_parser:
+        class: Woe\CrawlerBundle\Services\Parser\BilietaiEventParser
