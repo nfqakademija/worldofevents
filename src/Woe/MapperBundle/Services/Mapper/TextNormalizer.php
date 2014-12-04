@@ -14,7 +14,7 @@ class TextNormalizer
      */
     public function normalize($text)
     {
-        return $this->lowercaseAndSplitIntoWords($text)
+        return $this->convertAndSplitIntoWords($text)
             ->stripWordEndings()
             ->filterShortWords()
             ->getWords();
@@ -28,8 +28,8 @@ class TextNormalizer
     protected function stripWordEndings()
     {
         $word_endings = array(
-            'i?[yuoėe]+[js][ie]', // matches: ioji, oji, yje, oje, uje, ėse, yse etc
-            '[aeiouyąęėįų]+m?s?'  // matches: as, is, ys, ims, ams, a, į etc
+            'i?[yuoe]+[js][ie]', // matches: ioji, oji, yje, oje, uje, ėse, yse etc
+            '[aeiouy]+m?s?'  // matches: as, is, ys, ims, ams, a, į etc
         );
 
         $regex = '/' . join('|', $word_endings) . '$/';
@@ -55,18 +55,22 @@ class TextNormalizer
     }
 
     /**
-     * Removes all non-word characters (except for spaces and dots)
+     * Removes or replaces all non-word characters (except for spaces and dots),
      * and saves array of lowercase words
      *
      * @param $text
      * @return $this
      */
-    protected function lowercaseAndSplitIntoWords($text)
+    protected function convertAndSplitIntoWords($text)
     {
         mb_internal_encoding("UTF-8");
-
         $text = mb_strtolower($text);
-        $text = preg_replace('/[^\w+ąčęėįšųūž. ]/', '', $text);
+        $text = str_replace(
+            array('ą', 'č', 'ę', 'ė', 'į', 'š', 'ų', 'ū', 'ž'),
+            array('a', 'c', 'e', 'e', 'i', 's', 'u', 'u', 'z'),
+            $text
+        );
+        $text = preg_replace('/[^\w+. ]/', '', $text);
         $this->words = preg_split('/[\s.]+/', $text);
 
         return $this;

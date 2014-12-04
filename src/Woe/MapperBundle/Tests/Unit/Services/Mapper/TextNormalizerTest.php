@@ -22,19 +22,19 @@ class TextNormalizerTest extends \PHPUnit_Framework_TestCase
         return array(
             array(
                 'Eurolyga: "Neptūnas" - "Galatasaray"',
-                array('eurolyg', 'neptūn', 'galatasar')
+                array('eurolyg', 'neptun', 'galatasar')
             ),
             array(
                'Moscow City Ballet - Gulbių ežeras',
-                array('moscow', 'cit', 'ballet', 'gulb', 'ežer')
+                array('moscow', 'cit', 'ballet', 'gulb', 'ezer')
             ),
             array(
                 'Operetė "Šuo ant šieno"',
-                array('operet', 'ant', 'šien')
+                array('operet', 'ant', 'sien')
             ),
             array(
                 '"DOMINO" teatras | premjera "VYRŲ LAIŠKAI (ELEKTRIKUI, TĖVYNEI IR KREPŠINIUI)"',
-                array('domin', 'teatr', 'premjer', 'vyr', 'laišk', 'elektrik', 'tėvyn', 'krepšin')
+                array('domin', 'teatr', 'premjer', 'vyr', 'laisk', 'elektrik', 'tevyn', 'krepsin')
             ),
             array(
                 'V.Bagdonas ir A.Kulikauskas "Dainos sau"',
