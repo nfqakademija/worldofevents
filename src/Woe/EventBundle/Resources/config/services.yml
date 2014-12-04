@@ -1,4 +1,4 @@
 services:
-#    woe_event.example:
-#        class: Woe\EventBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    woe_event.event_search:
+        class: Woe\EventBundle\Services\Search
+        arguments: [@doctrine.orm.entity_manager]
