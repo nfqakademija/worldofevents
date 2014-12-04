@@ -30,7 +30,7 @@ class DefaultController extends Controller
 
     public function searchAction(Request $request)
     {
-        $events = $this->get('woe_event.event_search')->getSearchResults('');
+        $events = $this->get('woe_event.event_search')->getSearchResults($request->query->get('q'));
         return $this->render(
             'WoeWebBundle:Body:index.html.twig',
             array('events' => $events)

@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+    public function findByKeywords(array $keywords)
+    {
+        $query = $this->createQueryBuilder('event')
+            ->innerJoin('event.keywords', 'k')
+            ->where('k.name IN (:keywords)')
+            ->setParameter('keywords', $keywords);
+
+        return $query->getQuery()->getResult();
+    }
 }

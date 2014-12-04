@@ -24,10 +24,8 @@ class Search
 
     public function getSearchResults($search_term)
     {
-        $normalized_search_term = $this->normalizer->normalize($search_term);
-
-        $repository = $this->em->getRepository('WoeEventBundle:Keyword');
-        $repository->findBy(array('name' => $normalized_search_term));
-        return $this->em->getRepository('WoeEventBundle:Event')->findAll();
+        $normalized_words = $this->normalizer->normalize($search_term);
+        $repository = $this->em->getRepository('WoeEventBundle:Event');
+        return $repository->findByKeywords($normalized_words);
     }
 }
