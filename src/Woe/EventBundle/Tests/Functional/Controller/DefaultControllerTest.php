@@ -1,6 +1,6 @@
 <?php
 
-namespace Woe\WebBundle\Tests\Controller;
+namespace Woe\EventBundle\Tests\Functional\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

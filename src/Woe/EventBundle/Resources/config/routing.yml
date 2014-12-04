@@ -1,6 +1,10 @@
-woe_event_homepage:
-    path:     /hello/{name}
+woe_web_homepage:
+    path: /
     defaults: { _controller: WoeEventBundle:Default:index }
+
+woe_web_event:
+    path: /event/{id}
+    defaults: { _controller: WoeEventBundle:Default:event }
 
 woe_event_search:
     path:     /search
