@@ -37,9 +37,17 @@ class Keyword
      */
     private $tags;
 
+    /**
+     * @var Event[]
+     *
+     * @ORM\ManyToMany(targetEntity="Event", mappedBy="keywords")
+     */
+    private $events;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     /**
@@ -106,5 +114,38 @@ class Keyword
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Add event
+     *
+     * @param Event $event
+     * @return Keyword
+     */
+    public function addEvent(Event $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param Event $event
+     */
+    public function removeEvent(Event $event)
+    {
+        $this->events->removeElement($event);
+    }
+
+    /**
+     * Get events
+     *
+     * @return Event[]
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }

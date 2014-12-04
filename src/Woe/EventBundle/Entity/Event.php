@@ -110,9 +110,18 @@ class Event
      */
     private $tags;
 
+    /**
+     * @var Keyword[]
+     *
+     * @ORM\ManyToMany(targetEntity="Keyword", inversedBy="events")
+     * @ORM\JoinTable(name="events_keywords")
+     */
+    private $keywords;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->keywords = new ArrayCollection();
     }
 
     /**
@@ -424,5 +433,38 @@ class Event
         }
 
         return $this;
+    }
+
+    /**
+     * Add keyword
+     *
+     * @param Keyword $keyword
+     * @return Event
+     */
+    public function addKeyword(Keyword $keyword)
+    {
+        $this->keywords[] = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Remove keyword
+     *
+     * @param Keyword $keyword
+     */
+    public function removeKeyword(Keyword $keyword)
+    {
+        $this->keywords->removeElement($keyword);
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return Keyword[]
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
     }
 }
