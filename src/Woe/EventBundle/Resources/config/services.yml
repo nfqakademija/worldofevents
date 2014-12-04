@@ -1,4 +1,4 @@
 services:
     woe_event.event_search:
         class: Woe\EventBundle\Services\Search
-        arguments: [@doctrine.orm.entity_manager]
+        arguments: [@doctrine.orm.entity_manager, @woe_mapper.text_normalizer]

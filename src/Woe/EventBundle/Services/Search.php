@@ -3,6 +3,7 @@
 namespace Woe\EventBundle\Services;
 
 use Doctrine\ORM\EntityManager;
+use Woe\MapperBundle\Services\Mapper\TextNormalizer;
 
 class Search
 {
