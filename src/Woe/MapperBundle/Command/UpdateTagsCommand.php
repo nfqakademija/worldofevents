@@ -8,12 +8,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MapCommand extends ContainerAwareCommand
+class UpdateTagsCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
         $this
-            ->setName('tags:update')
+            ->setName('mapper:tags:update')
             ->setDescription('Updates event tags based on keyword -> tag relations');
     }
 

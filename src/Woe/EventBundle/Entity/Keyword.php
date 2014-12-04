@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Keyword
  *
  * @ORM\Table(name="keywords")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Woe\EventBundle\Entity\KeywordRepository")
  */
 class Keyword
 {
