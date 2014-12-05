@@ -22,41 +22,20 @@ class UpdateTagsCommand extends ContainerAwareCommand
         $doctrine = $this->getContainer()->get('doctrine');
         $em = $doctrine->getManager();
 
-        $text_normalizer = $this->getContainer()->get('woe_mapper.text_normalizer');
         $events = $doctrine->getRepository('WoeEventBundle:Event')->findAll();
 
         foreach ($events as $event) {
-            $text = $event->getTitle();
-            $keywords = $doctrine->getRepository('WoeEventBundle:Keyword')
-                ->findBy(array('name' => $text_normalizer->normalize($text)));
-
-            foreach ($keywords as $keyword) {
-                $tags = $this->getNewEventTags($event, $keyword);
-                $event->addTags($tags);
-                $em->persist($event);
+            foreach ($event->getKeywords() as $keyword) {
+                foreach ($keyword->getTags() as $tag) {
+                    if (!$event->getTags()->contains($tag)) {
+                        $output->writeln("Adding tag: " . $tag->getName());
+                        $event->addTag($tag);
+                    }
+                }
             }
+            $em->persist($event);
         }
 
         $em->flush();
-    }
-
-    /**
-     * Get new event tags
-     *
-     * @param $event
-     * @param $keyword
-     * @return mixed
-     */
-    protected function getNewEventTags($event, $keyword)
-    {
-        $event_tags = $event->getTags()->toArray();
-        $tags = $keyword->getTags()->filter(
-            function ($tag) use ($event_tags) {
-                if (!in_array($tag, $event_tags)) {
-                    return true;
-                }
-            }
-        );
-        return $tags;
     }
 }
