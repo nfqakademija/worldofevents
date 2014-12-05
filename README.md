@@ -1,6 +1,6 @@
 # World of Events
 
-[![Build Status](https://travis-ci.org/nfqakademija/worldofevents.svg?branch=master)](https://travis-ci.org/nfqakademija/worldofevents) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/?branch=master)
+[![Build Status](https://travis-ci.org/nfqakademija/worldofevents.svg?branch=master)](https://travis-ci.org/nfqakademija/worldofevents) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/nfqakademija/worldofevents/?branch=master) [![Deployment status from dploy.io](https://worldofevents.dploy.io/badge/88313865878582/16003.png)](http://dploy.io)
 
 ## Requirements
 
