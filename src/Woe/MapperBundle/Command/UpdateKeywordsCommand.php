@@ -52,7 +52,7 @@ class UpdateKeywordsCommand extends ContainerAwareCommand
         $counter = 0;
 
         foreach ($keywords as $keyword_name) {
-            $keyword = $repository->findOrCreateKeyword($keyword_name);
+            $keyword = $repository->findOrCreate($keyword_name);
             if (!$event->getKeywords()->contains($keyword)) {
                 $event->addKeyword($keyword);
                 $em->persist($keyword);

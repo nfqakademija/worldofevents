@@ -57,7 +57,7 @@ class CrawlCommand extends ContainerAwareCommand
 
         $doctrine = $this->getContainer()->get('doctrine');
         $event_city = $doctrine->getRepository('WoeEventBundle:City')
-            ->findOrCreateCity($parser->getCity());
+            ->findOrCreate($parser->getCity());
 
         $event_location = $doctrine->getRepository('WoeEventBundle:Location')
             ->findOrCreateLocation(
