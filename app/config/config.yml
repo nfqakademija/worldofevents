@@ -74,5 +74,5 @@ knp_paginator:
         sort_direction_name: direction
         distinct: true
     template:
-        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig
+        pagination: WoeWebBundle:Body:pagination.html.twig
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig

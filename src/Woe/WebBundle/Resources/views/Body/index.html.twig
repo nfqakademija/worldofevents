@@ -3,9 +3,13 @@
 {% block body %}
     <div class="col-md-12 element-holder container">
         <div class="frame">
-            {% for event in events %}
+            <div class="row">
+            {% for event in pagination %}
                 {{ include('@WoeWeb/Event/eventCard.html.twig', {'event': event}) }}
             {% endfor %}
+            </div>
         </div>
+        {{ knp_pagination_render(pagination) }}
     </div>
 {% endblock %}
+

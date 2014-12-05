@@ -7,12 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $events = $this->getDoctrine()->getManager()
             ->getRepository('WoeEventBundle:Event')
             ->findAll();
-        return $this->render('WoeWebBundle:Body:index.html.twig', array('events' => $events));
+
+        return $this->renderPaginatedEvents($request, $events);
     }
 
     public function eventAction($id)
@@ -31,9 +32,25 @@ class DefaultController extends Controller
     public function searchAction(Request $request)
     {
         $events = $this->get('woe_event.event_search')->getSearchResults($request->query->get('q'));
-        return $this->render(
-            'WoeWebBundle:Body:index.html.twig',
-            array('events' => $events)
+        return $this->renderPaginatedEvents($request, $events);
+    }
+
+    /**
+     * Render event list with pagination
+     *
+     * @param Request $request
+     * @param $events
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function renderPaginatedEvents(Request $request, $events)
+    {
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $events,
+            $request->query->get('page', 1),
+            15
         );
+
+        return $this->render('WoeWebBundle:Body:index.html.twig', array('pagination' => $pagination));
     }
 }
