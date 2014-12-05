@@ -41,6 +41,7 @@ $divider-color: #dddddd;
     }
 
     .event-title {
+        height: 45px;
         width: 100%;
         padding-bottom: 5px;
         font-size: 1.2em;
@@ -66,7 +67,6 @@ $divider-color: #dddddd;
     background-color: #F3F3F3;
 
     .event-name {
-        text-align: center;
         width: 100%;
         border-bottom: 1px $divider-color solid;
 
@@ -148,6 +148,10 @@ $divider-color: #dddddd;
         background-color: #FFD622;
         border-radius: 0px 7px 7px 0px;
     }
+}
+
+.event-buttons {
+    padding-top: 10px;
 }
 
 .admin-holder {

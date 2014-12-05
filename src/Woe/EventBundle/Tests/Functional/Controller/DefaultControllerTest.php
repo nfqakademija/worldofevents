@@ -36,6 +36,27 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals($expected, $crawler->filter('div.event-element div.event-title a')->eq($n)->text());
     }
 
+    public function testIndexPageEventsHaveDate()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertEquals("2014-12-11 17:00", $crawler->filter('.event-element .event-info-date')->text());
+    }
+
+    public function testIndexPageEventsHaveLocationName()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertEquals("NFQ Akademija, Vilnius", $crawler->filter('.event-element .event-info-place')->text());
+    }
+
+    public function testIndexPageEventsHaveMinimumPrice()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertEquals("Nuo 10.00 Lt", $crawler->filter('.event-element .event-info-price')->text());
+    }
+
     public function testIndexPageEventsHaveLinksToDetails()
     {
         $client = static::createClient();

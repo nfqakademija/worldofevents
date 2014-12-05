@@ -5,11 +5,6 @@
         <div class="event-name frame clearfix">
             <h1 class="pull-left">{{ event.title }}</h1>
 
-            <div class="pull-right">
-                <button class="btn btn-primary map-button">Rodyti žemėlapyje</button>
-                <button class="btn btn-primary remind-button">Priminti apie renginį</button>
-                <a class="btn btn-success event-tickets-button" href="{{ event.sourceUrl }}">Pirkti bilietus</a>
-            </div>
         </div>
         <div class="event-desc">
             <div class="event-price">Kaina: {{ event.priceMin }} - {{ event.priceMax }} Lt</div>
@@ -29,6 +24,11 @@
         <div class="col-md-5">
             <div class="event-image">
                 <img src="{{ event.image }}">
+            </div>
+            <div class="event-buttons">
+                <a class="btn btn-success event-tickets-button" href="{{ event.sourceUrl }}">Pirkti bilietus</a>
+                <button class="btn btn-primary remind-button">Priminti apie renginį</button>
+                <button class="btn btn-primary map-button">Rodyti žemėlapyje</button>
             </div>
         </div>
     </div>

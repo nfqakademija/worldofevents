@@ -10,13 +10,13 @@
     <div class="event-icons">
         <div class="event-icon-row">
             <span class="glyphicon glyphicon-calendar"></span>
-            <span class="event-info">Šiandien, 19:00</span></div>
+            <span class="event-info-date">{{ event.date|date("Y-m-d H:i") }}</span></div>
         <div class="event-icon-row">
             <span class="glyphicon glyphicon-map-marker"></span>
-            <span class="event-info">Lietuvos nacionalinė filharmonija, Vilnius</span>
+            <span class="event-info-place">{{ event.location.name }}, {{ event.location.city.name }}</span>
         </div>
         <div class="event-icon-row">
             <span class="glyphicon glyphicon-euro"></span>
-            <span class="event-info">6.81 - 11.15&euro;</span></div>
+            <span class="event-info-price">Nuo {{ event.priceMin }} Lt</span></div>
     </div>
 </div>
