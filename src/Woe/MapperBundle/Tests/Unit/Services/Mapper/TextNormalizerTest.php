@@ -43,6 +43,10 @@ class TextNormalizerTest extends \PHPUnit_Framework_TestCase
             array(
                 'Koncertai Trakų pilyje',
                 array('koncert', 'trak', 'pil')
+            ),
+            array(
+                'Koncertai koncertai koncertai',
+                array('koncert')
             )
         );
     }

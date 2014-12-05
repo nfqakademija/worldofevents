@@ -17,6 +17,7 @@ class TextNormalizer
         return $this->convertAndSplitIntoWords($text)
             ->stripWordEndings()
             ->filterShortWords()
+            ->filterDuplicates()
             ->getWords();
     }
 
@@ -72,6 +73,18 @@ class TextNormalizer
         );
         $text = preg_replace('/[^\w+. ]/', '', $text);
         $this->words = preg_split('/[\s.]+/', $text);
+
+        return $this;
+    }
+
+    /**
+     * Removes duplicated words
+     *
+     * @return $this
+     */
+    public function filterDuplicates()
+    {
+        $this->words = array_unique($this->words);
 
         return $this;
     }
