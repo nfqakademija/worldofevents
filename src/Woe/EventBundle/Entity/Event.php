@@ -118,10 +118,18 @@ class Event
      */
     private $keywords;
 
+    /**
+     * @var Notification[]
+     *
+     * @ORM\OneToMany(targetEntity="Notification", mappedBy="event")
+     */
+    private $notifications;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->keywords = new ArrayCollection();
+        $this->notifications = new ArrayCollection();
     }
 
     /**
@@ -466,5 +474,38 @@ class Event
     public function getKeywords()
     {
         return $this->keywords;
+    }
+
+    /**
+     * Add notification
+     *
+     * @param Notification $notification
+     * @return Event
+     */
+    public function addNotification(Notification $notification)
+    {
+        $this->notifications[] = $notification;
+
+        return $this;
+    }
+
+    /**
+     * Remove notification
+     *
+     * @param Notification $notification
+     */
+    public function removeNotification(Notification $notification)
+    {
+        $this->notifications->removeElement($notification);
+    }
+
+    /**
+     * Get notifications
+     *
+     * @return Notification[]
+     */
+    public function getNotifications()
+    {
+        return $this->notifications;
     }
 }
