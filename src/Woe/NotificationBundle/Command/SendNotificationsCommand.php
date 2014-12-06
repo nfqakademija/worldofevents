@@ -1,5 +1,6 @@
 <?php
-namespace Woe\CrawlerBundle\Command;
+
+namespace Woe\NotificationBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
