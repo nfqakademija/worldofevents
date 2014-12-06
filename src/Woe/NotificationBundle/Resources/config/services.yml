@@ -1,1 +1,4 @@
 services:
+    woe_notification.notification_service:
+        class: Woe\NotificationBundle\Services\NotificationService
+        arguments: [@swiftmailer.mailer]

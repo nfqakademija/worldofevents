@@ -12,4 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class NotificationRepository extends EntityRepository
 {
+    public function findAllForSending()
+    {
+        return $this->findBy(array('date' => new \DateTime('now')));
+    }
 }
