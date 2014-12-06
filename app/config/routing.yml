@@ -1,3 +1,7 @@
+woe_notification:
+    resource: "@WoeNotificationBundle/Resources/config/routing.yml"
+    prefix:   /
+
 woe_event:
     resource: "@WoeEventBundle/Resources/config/routing.yml"
     prefix:   /
