@@ -15,11 +15,11 @@ class BilietaiEventParser extends EventParser
 
     /**
      * Get description
-     * @return null|string
+     * @return string
      */
     public function getDescription()
     {
-        return $this->getNodeValueOrNull("//div[contains(@class, 'event_description')]");
+        return $this->getNodeHtml("//div[contains(@class, 'event_description')]");
     }
 
     /**

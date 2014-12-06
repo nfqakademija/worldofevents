@@ -18,9 +18,7 @@ class BilietaiEventParserTest extends \PHPUnit_Framework_TestCase
     public function testEventDescription()
     {
         $parser = $this->loadFixtureFromFile("bilietai_event_page_with_valid_information.html");
-        $prefix = 'Mano vardas - Andrius Mamontovas. Kažkada grojau grupėje Foje.';
-        $actual = $parser->getDescription();
-        $this->assertStringStartsWith($prefix, $actual);
+        $this->assertContains('Andrius Mamontovas', $parser->getDescription());
     }
 
     public function testEventInformation()

@@ -142,14 +142,7 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals($expected, $crawler->filter('.event-tickets-button')->attr('href'));
     }
 
-    public function testEventDescriptionHasLikeBreaks()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/event/2');
-        $this->assertCount(2, $crawler->filter('.event-description-text > br'));
-    }
-
-    public function testEventInformationHasLikeBreaks()
+    public function testEventInformationHasLineBreaks()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/event/2');

@@ -47,7 +47,7 @@ class CrawlCommand extends ContainerAwareCommand
         $event = new Event();
 
         $event->setTitle($parser->getTitle());
-        $event->setDescription($parser->getDescription());
+        $event->setDescription($this->purifyHtml($parser->getDescription()));
         $event->setInformation($parser->getInformation());
         $event->setPriceMin($parser->getPriceMin());
         $event->setPriceMax($parser->getPriceMax());
@@ -102,5 +102,17 @@ class CrawlCommand extends ContainerAwareCommand
         $status = sprintf($output_format, $output_color, $output_status, $event->getSourceUrl(), $event->getTitle());
 
         return $status;
+    }
+
+    /**
+     * Cleans up HTML with HTMLPurifier
+     * @param $html
+     * @return mixed|string
+     */
+    protected function purifyHtml($html)
+    {
+        $html = $this->getContainer()->get('exercise_html_purifier.default')->purify($html);
+        $html = preg_replace('/^\s*(?:<br\s*\/?>\s*)+/', '', $html);
+        return $html;
     }
 }

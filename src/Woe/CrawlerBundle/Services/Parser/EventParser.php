@@ -39,6 +39,30 @@ abstract class EventParser implements EventParserInterface
     }
 
     /**
+     * Get HTML of a node
+     * @param $xpath
+     * @param int $index
+     * @return string
+     */
+    public function getNodeHtml($xpath, $index = 0)
+    {
+        $node = $this->getDom()->query($xpath);
+
+        if ($node->length === 0) {
+            return "";
+        }
+
+        $html = '';
+        foreach ($node->item($index)->childNodes as $child) {
+            $document = new \DOMDocument();
+            $document->appendChild($document->importNode($child, true));
+            $html .= rtrim($document->saveHTML());
+        }
+
+        return $html;
+    }
+
+    /**
      * Get source URL
      * @return string
      */
