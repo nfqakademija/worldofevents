@@ -20,7 +20,7 @@ class NotificationService
     {
         $message = \Swift_Message::newInstance()
             ->setSubject("Priminimas apie renginį " . $notification->getEvent()->getTitle())
-            ->setFrom("info@worldofevents.dev")
+            ->setFrom("infoworldofevents@gmail.com")
             ->setTo($notification->getEmail())
             ->setBody("Daugiau informacijos: " . $notification->getEvent()->getSourceUrl());
 

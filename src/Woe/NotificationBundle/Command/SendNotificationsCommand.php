@@ -21,6 +21,7 @@ class SendNotificationsCommand extends ContainerAwareCommand
         $em = $doctrine->getManager();
         $repository =  $doctrine->getRepository('WoeEventBundle:Notification');
 
+        /** @var \Woe\EventBundle\Entity\Notification $notification */
         foreach ($repository->findAllForSending() as $notification) {
             $output->writeln("Sending notification to: " . $notification->getEmail());
             $this->getContainer()->get('woe_notification.notification_service')
