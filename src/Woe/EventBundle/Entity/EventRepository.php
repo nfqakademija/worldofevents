@@ -19,10 +19,21 @@ class EventRepository extends EntityRepository
             ->where('k.name IN (:keywords)')
             ->groupBy('event.id')
             ->having("COUNT(event.id) = :count")
+            ->orderBy('event.date')
             ->setParameters(array(
                 'keywords' => $keywords,
                 'count' => count($keywords)
             ));
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findAllActiveSortedByDate()
+    {
+        $query = $this->createQueryBuilder('event')
+            ->where('event.date > :date')
+            ->setParameter('date', new \DateTime('now'))
+            ->orderBy('event.date');
 
         return $query->getQuery()->getResult();
     }

@@ -12,7 +12,7 @@ class DefaultController extends Controller
     {
         $events = $this->getDoctrine()->getManager()
             ->getRepository('WoeEventBundle:Event')
-            ->findAll();
+            ->findAllActiveSortedByDate();
 
         return $this->renderPaginatedEvents($request, $events);
     }
