@@ -1,11 +1,9 @@
 {
     "app.js": [
-        "../../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"
+        "../../../../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js",
+        "notifications.js"
     ],
     "jquery.js": [
-        "../../../bower_components/jquery/dist/jquery.min.js"
-    ],
-    "info-hover.js": [
-	"info-hover.js"
+        "../../../../../bower_components/jquery/dist/jquery.min.js"
     ]
 }
