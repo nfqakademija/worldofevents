@@ -10,7 +10,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 	
-	<!-- StyleSheets (compiled) -->
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('required/jquery.dropdown.css') }}">
@@ -28,35 +27,26 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-	<!-- Navbar (found in ~/header) -->
 <div class="container col-md-12">
 	{% block navbar %}
 	{% endblock %}
 </div>
 
 <div class="container">
-
-	<!-- Header -->
-
     {% block header %}
     {% endblock %}
-	
-	<!-- Body -->
+
     {% block body %}
     {% endblock %}
 		
-	<!-- Footer -->
     {% block footer %}
     {% endblock %}
-
 </div>
 
-	<!-- JavaScripts -->
 {% block javascripts %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/info-hover.js') }}"></script>
     <script src="{{ asset('required/jquery.dropdown.min.js') }}"></script>
 {% endblock %}
     
