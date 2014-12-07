@@ -14,6 +14,10 @@ class NotificationRepository extends EntityRepository
 {
     public function findAllForSending()
     {
-        return $this->findBy(array('date' => new \DateTime('now')));
+        $query = $this->createQueryBuilder('n')
+            ->where('n.date < :now')
+            ->setParameter('now', new \DateTime('now'))
+            ->getQuery();
+        return $query->getResult();
     }
 }
