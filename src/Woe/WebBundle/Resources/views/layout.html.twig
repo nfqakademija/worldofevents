@@ -4,6 +4,12 @@
     {{ include('WoeWebBundle:Header:navbar.html.twig') }}
 {% endblock %}
 
+{% block header %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">{{ flashMessage }}</div>
+    {% endfor %}
+{% endblock %}
+
 {% block footer %}
     {{ include('WoeWebBundle:Footer:footer.html.twig') }}
 {% endblock %}
