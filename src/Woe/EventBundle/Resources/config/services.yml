@@ -2,3 +2,8 @@ services:
     woe_event.event_search:
         class: Woe\EventBundle\Services\Search
         arguments: [@doctrine.orm.entity_manager, @woe_mapper.text_normalizer]
+
+    woe_event.form.type.notification:
+        class: Woe\EventBundle\Form\Type\NotificationType
+        tags:
+            -  { name: form.type, alias: notification }
