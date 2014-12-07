@@ -4,6 +4,7 @@ namespace Woe\EventBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Woe\EventBundle\Entity\Notification;
 
 class DefaultController extends Controller
 {
@@ -16,17 +17,40 @@ class DefaultController extends Controller
         return $this->renderPaginatedEvents($request, $events);
     }
 
-    public function eventAction($id)
+    public function eventAction($id, Request $request)
     {
-        $event = $this->getDoctrine()->getManager()
-            ->getRepository('WoeEventBundle:Event')
-            ->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $event = $em->getRepository('WoeEventBundle:Event')->find($id);
 
         if (!$event) {
             throw $this->createNotFoundException('Renginys nerastas');
         }
 
-        return $this->render('WoeWebBundle:Body:event.html.twig', array('event' => $event));
+        $notification = new Notification();
+        $form = $this->createForm('notification', $notification);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $interval = new \DateInterval('P' . $form->get('days')->getData() . 'D');
+            $notification_date = $event->getDate()->sub($interval);
+
+            $notification->setDate($notification_date);
+            $notification->setEvent($event);
+            $em->persist($notification);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add(
+                'success',
+                'Priminimas sėkmingai išsaugotas. Jį gausite nurodytu adresu ' . $notification_date->format("Y-m-d H:i")
+            );
+
+            return $this->redirect($this->generateUrl('woe_web_event', array('id' => $id)));
+        }
+
+        return $this->render('WoeWebBundle:Body:event.html.twig', array(
+            'event' => $event,
+            'form'  => $form->createView(),
+        ));
     }
 
     public function searchAction(Request $request)
