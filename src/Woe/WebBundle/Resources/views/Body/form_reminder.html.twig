@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+<div class="form-group">
+    {{ form_label(form.email, 'El. paštas') }}
+    {{ form_widget(form.email, {'attr': {'class': 'form-control' }}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.days, 'Prieš kiek dienų iki renginio pradžios norite gauti priminimą?') }}
+    {{ form_widget(form.days, {'attr': {'class': 'form-control' }}) }}
+</div>
+
+<div>
+    {{ form_widget(form.save, {'label': 'Priminti', 'attr': {'class': 'btn btn-default' }}) }}
+</div>
+{{ form_end(form) }}
