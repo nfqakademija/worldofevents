@@ -12,15 +12,22 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+    /**
+     * Returns event list for the search term $keywords.
+     * Event is included in the search results only if all keywords are matched.
+     * @param array $keywords
+     * @return Event[]
+     */
     public function findByKeywords(array $keywords)
     {
         $query = $this->createQueryBuilder('event')
             ->innerJoin('event.keywords', 'k')
-            ->where('k.name IN (:keywords)')
+            ->where('event.date > :date AND k.name IN (:keywords)')
             ->groupBy('event.id')
             ->having("COUNT(event.id) = :count")
             ->orderBy('event.date')
             ->setParameters(array(
+                'date' => new \DateTime('now'),
                 'keywords' => $keywords,
                 'count' => count($keywords)
             ));
@@ -28,12 +35,33 @@ class EventRepository extends EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    /**
+     * All future events sorted by date ascending
+     *
+     * @return Event[]
+     */
     public function findAllActiveSortedByDate()
     {
         $query = $this->createQueryBuilder('event')
             ->where('event.date > :date')
             ->setParameter('date', new \DateTime('now'))
             ->orderBy('event.date');
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Find events by tag id
+     *
+     * @param $id
+     * @return Event[]
+     */
+    public function findByTagId($id)
+    {
+        $query = $this->createQueryBuilder('event')
+            ->innerJoin('event.tags', 't')
+            ->where('t.id = :tag_id')
+            ->setParameter('tag_id', $id);
 
         return $query->getQuery()->getResult();
     }
