@@ -7,6 +7,19 @@ use Woe\MapperBundle\Services\Mapper\TextNormalizer;
 
 class Search
 {
+    protected $weekDays = array(
+        'pirmadien' => ['monday'],
+        'antradien' => ['tuesday'],
+        'treciadien' => ['wednesday'],
+        'ketvirtadien' => ['thursday'],
+        'penktadien' => ['friday'],
+        'sestadien' => ['saturday'],
+        'sekmadien' => ['sunday'],
+        'siandien' => ['today'],
+        'rytoj' => ['tomorrow'],
+        'poryt' => ['tomorrow +1 day'],
+        'savaitgal' => ['saturday', 'sunday']
+    );
     /**
      * @var EntityManager
      */
@@ -43,22 +56,8 @@ class Search
      */
     protected function getDatesFromKeywords($normalizedWords)
     {
-        $weekDays = array(
-            'pirmadien' => ['monday'],
-            'antradien' => ['tuesday'],
-            'treciadien' => ['wednesday'],
-            'ketvirtadien' => ['thursday'],
-            'penktadien' => ['friday'],
-            'sestadien' => ['saturday'],
-            'sekmadien' => ['sunday'],
-            'siandien' => ['today'],
-            'rytoj' => ['tomorrow'],
-            'poryt' => ['tomorrow +1 day'],
-            'savaitgal' => ['saturday', 'sunday']
-        );
-
         $dates = array();
-        foreach ($weekDays as $weekDay => $dateFormats) {
+        foreach ($this->weekDays as $weekDay => $dateFormats) {
             $position = array_search($weekDay, $normalizedWords);
 
             if ($position !== false) {
