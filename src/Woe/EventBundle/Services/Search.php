@@ -7,6 +7,10 @@ use Woe\MapperBundle\Services\Mapper\TextNormalizer;
 
 class Search
 {
+    /**
+     * Data structure for generating date object from keywords
+     * @var array
+     */
     protected $weekDays = array(
         'pirmadien' => ['monday'],
         'antradien' => ['tuesday'],
@@ -35,6 +39,12 @@ class Search
         $this->normalizer = $normalizer;
     }
 
+    /**
+     * Get search results for $search_term
+     *
+     * @param string $search_term
+     * @return \Woe\EventBundle\Entity\Event[]
+     */
     public function getSearchResults($search_term)
     {
         $repository = $this->em->getRepository('WoeEventBundle:Event');
@@ -45,16 +55,17 @@ class Search
         $events = empty($normalizedWords) ? $repository->findAllActiveSortedByDate()
                                           : $repository->findByKeywords($normalizedWords);
 
+        $test = $this->filterSearchResultsByDateKeywords($events, $dates);
         return empty($dates) ? $events : $this->filterSearchResultsByDateKeywords($events, $dates);
     }
 
     /**
      * Separates dates keywords from regular keywords and converts them to DateTime objects
      *
-     * @param $normalizedWords
+     * @param array $normalizedWords
      * @return array
      */
-    protected function getDatesFromKeywords($normalizedWords)
+    protected function getDatesFromKeywords(array $normalizedWords)
     {
         $dates = array();
         foreach ($this->weekDays as $weekDay => $dateFormats) {
@@ -74,9 +85,9 @@ class Search
     /**
      * Filter search results by date keywords
      *
-     * @param array $events
-     * @param array $dates
-     * @return Event[]
+     * @param \Woe\EventBundle\Entity\Event[] $events
+     * @param \DateTime[] $dates
+     * @return \Woe\EventBundle\Entity\Event[]
      */
     protected function filterSearchResultsByDateKeywords($events, $dates)
     {
