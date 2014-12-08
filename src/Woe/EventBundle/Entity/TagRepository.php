@@ -16,7 +16,7 @@ class TagRepository extends EntityRepository
      * Returns list of random tags with their total count
      *
      * @param int $limit
-     * @return Tag[]
+     * @return array
      */
     public function findRandomWithCount($limit = 20)
     {
