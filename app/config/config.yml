@@ -49,6 +49,9 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        dql:
+            numeric_functions:
+                Rand: Woe\EventBundle\DQL\RandFunction
 
 # Swiftmailer Configuration
 swiftmailer:
