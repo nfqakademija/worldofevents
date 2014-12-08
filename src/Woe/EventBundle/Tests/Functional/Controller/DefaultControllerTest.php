@@ -12,6 +12,7 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/');
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
+
     public function testIndexPageTitle()
     {
         $client = static::createClient();
@@ -34,6 +35,15 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
         $this->assertEquals($expected, $crawler->filter('div.event-element div.event-title a')->eq($n)->text());
+    }
+
+    public function numberedTitlesProvider()
+    {
+        return array(
+            array(0, 'Duis aute irure dolor in reprehenderit'),
+            array(1, 'LIEPSNOJANTIS KALĖDŲ LEDAS 2014'),
+            array(2, 'Andrius Mamontovas. Tas bičas iš "Fojė"')
+        );
     }
 
     public function testIndexPageEventsHaveDate()
@@ -64,12 +74,29 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals('/event/1', $crawler->filter('.event-element a')->attr('href'));
     }
 
-    public function numberedTitlesProvider()
+    public function testIndexPageHasEventTagsListed()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertCount(3, $crawler->filter('.event-tag'));
+    }
+
+    /**
+     * @dataProvider tagsWithCountProvider
+     */
+    public function testIndexPageHasEventTagsWithCorrectNameAndCount($name, $count)
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $this->assertContains("$name $count", $crawler->filter(".event-tag-list")->text());
+    }
+
+    public function tagsWithCountProvider()
     {
         return array(
-            array(0, 'Duis aute irure dolor in reprehenderit'),
-            array(1, 'LIEPSNOJANTIS KALĖDŲ LEDAS 2014'),
-            array(2, 'Andrius Mamontovas. Tas bičas iš "Fojė"')
+            array('geltona', '1'),
+            array('juoda', '1'),
+            array('raudona', '1'),
         );
     }
 

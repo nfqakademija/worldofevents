@@ -10,11 +10,11 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $events = $this->getDoctrine()->getManager()
-            ->getRepository('WoeEventBundle:Event')
-            ->findAllActiveSortedByDate();
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('WoeEventBundle:Event')->findAllActiveSortedByDate();
+        $tags = $em->getRepository('WoeEventBundle:Tag')->findRandomWithCount();
 
-        return $this->renderPaginatedEvents($request, $events);
+        return $this->renderPaginatedEvents($request, $events, $tags);
     }
 
     public function eventAction($id, Request $request)
@@ -55,8 +55,19 @@ class DefaultController extends Controller
 
     public function searchAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $events = $this->get('woe_event.event_search')->getSearchResults($request->query->get('q'));
-        return $this->renderPaginatedEvents($request, $events);
+        $tags = $em->getRepository('WoeEventBundle:Tag')->findRandomWithCount();
+        return $this->renderPaginatedEvents($request, $events, $tags);
+    }
+
+    public function tagAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('WoeEventBundle:Event')->findByTagId($id);
+        $tags = $em->getRepository('WoeEventBundle:Tag')->findRandomWithCount();
+
+        return $this->renderPaginatedEvents($request, $events, $tags);
     }
 
     /**
@@ -64,9 +75,10 @@ class DefaultController extends Controller
      *
      * @param Request $request
      * @param $events
+     * @param $tags
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    protected function renderPaginatedEvents(Request $request, $events)
+    protected function renderPaginatedEvents(Request $request, $events, $tags)
     {
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -75,6 +87,6 @@ class DefaultController extends Controller
             15
         );
 
-        return $this->render('WoeWebBundle:Body:index.html.twig', array('pagination' => $pagination));
+        return $this->render('WoeWebBundle:Body:index.html.twig', array('pagination' => $pagination, 'tags' => $tags));
     }
 }

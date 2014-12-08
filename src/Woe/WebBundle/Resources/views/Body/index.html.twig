@@ -1,5 +1,14 @@
 {% extends 'WoeWebBundle::layout.html.twig' %}
 
+{% block header %}
+    {{ parent() }}
+    <div class="event-tag-list">
+        {% for result in tags %}
+            {{ include('@WoeWeb/Body/tagLink.html.twig', {'result': result}) }}
+        {% endfor %}
+    </div>
+{% endblock %}
+
 {% block body %}
     <div class="col-md-12 element-holder container">
         <div class="frame">

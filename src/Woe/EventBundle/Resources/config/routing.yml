@@ -9,3 +9,7 @@ woe_web_event:
 woe_event_search:
     path:     /search
     defaults: { _controller: WoeEventBundle:Default:search }
+
+woe_web_tag:
+    path: /tag/{id}
+    defaults: { _controller: WoeEventBundle:Default:tag }
