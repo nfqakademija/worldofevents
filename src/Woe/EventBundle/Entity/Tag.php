@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Tag
  *
  * @ORM\Table(name="tags")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Woe\EventBundle\Entity\TagRepository")
  */
 class Tag
 {
