@@ -27,21 +27,17 @@ class DefaultController extends Controller
         }
 
         $notification = new Notification();
-        $form = $this->createForm('notification', $notification);
+        $form = $this->createForm('notification', $notification, array('event' => $event));
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $interval = new \DateInterval('P' . $form->get('days')->getData() . 'D');
-            $notification_date = $event->getDate()->sub($interval);
-
-            $notification->setDate($notification_date);
             $notification->setEvent($event);
             $em->persist($notification);
             $em->flush();
 
             $request->getSession()->getFlashBag()->add(
                 'success',
-                'Priminimas sėkmingai išsaugotas. Jį gausite nurodytu adresu ' . $notification_date->format("Y-m-d H:i")
+                'Priminimas sėkmingai išsaugotas. Jį gausite nurodytu adresu ' . $notification->getDate()->format("Y-m-d H:i")
             );
 
             return $this->redirect($this->generateUrl('woe_web_event', array('id' => $id)));
