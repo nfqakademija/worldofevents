@@ -3,25 +3,18 @@
 {% block body %}
     <div class="col-md-12 container event-holder">
         <div class="event-name frame clearfix">
-            <h1 class="pull-left">{{ event.title }}</h1>
+            <h1>{{ event.title }}</h1>
 
         </div>
-        <div class="event-desc">
+
+        <div class="row event-desc">
             <div class="event-price">Kaina: {{ event.priceMin }} - {{ event.priceMax }} Lt</div>
             <div class="event-place">Vieta: {{ event.location.name }} ({{ event.location.address }})</div>
-            <div class="event-date">Renginio pradžia: {{ event.date|date('Y-m-d H:i') }}</div>
-        </div>
-        <div class="col-md-7">
-            <div class="frame event-description">
-                <div class="event-description-text">{{ event.description|raw }}</div>
-            </div>
-
-            <div id="event-info" class="frame">
-                <div class="event-details">{{ event.information|nl2br }}</div>
-            </div>
+            <div class="event-date">Pradžia: {{ event.date|date('Y-m-d H:i') }}</div>
         </div>
 
-        <div class="col-md-5">
+        <div class="row">
+        <div class="col-md-5 col-md-push-7">
             <div class="event-big-image">
                 <img src="{{ event.image }}">
             </div>
@@ -34,6 +27,18 @@
                 {{ include('@WoeWeb/Body/form_reminder.html.twig') }}
             </div>
         </div>
+
+        <div class="col-md-7 col-md-pull-5">
+            <div class="frame event-description">
+                <div class="event-description-text">{{ event.description|raw }}</div>
+            </div>
+
+            <div id="event-info" class="frame">
+                <div class="event-details">{{ event.information|nl2br }}</div>
+            </div>
+        </div>
+        </div>
+
         {{ include('@WoeWeb/Body/mapModal.html.twig') }}
     </div>
 {% endblock %}

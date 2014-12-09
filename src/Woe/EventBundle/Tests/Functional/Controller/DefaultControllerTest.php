@@ -149,7 +149,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/event/1');
-        $expected = "Renginio pradžia: 2014-12-11 17:00";
+        $expected = "Pradžia: 2014-12-11 17:00";
         $this->assertEquals($expected, $crawler->filter('.event-date')->text());
     }
 
