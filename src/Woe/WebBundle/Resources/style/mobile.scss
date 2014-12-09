@@ -1,0 +1,20 @@
+@media(max-width: $screen-desktop) {
+    .event-buttons, .event-desc, .event-name {
+        text-align: center;
+    }
+
+    .event-desc {
+        .event-date, .event-price {
+            border-radius: 0;
+        }
+    }
+
+    .event-big-image {
+        margin: 0 auto;
+    }
+
+    .event-desc .event-button {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
