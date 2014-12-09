@@ -151,12 +151,8 @@ $divider-color: #dddddd;
     }
 
     .event-image-block {
-        width: 331px;
-        height: 190px;
-
         .event-image {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
         }
     }
 }
