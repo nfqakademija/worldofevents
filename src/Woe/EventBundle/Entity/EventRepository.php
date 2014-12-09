@@ -75,8 +75,10 @@ class EventRepository extends EntityRepository
     public function findNearbyEvents(Event $event)
     {
         $interval = new \DateInterval('PT12H');
-        $from = $event->getDate()->sub($interval);
-        $to = $event->getDate()->add($interval);
+        $from = clone $event->getDate();
+        $from->sub($interval);
+        $to = clone $event->getDate();
+        $to->add($interval);
 
         $query = $this->createQueryBuilder('event')
             ->innerJoin('event.location', 'location')
