@@ -28,8 +28,23 @@ class GeocodeCommand extends ContainerAwareCommand
                 ->findBy(array('latitude' => null, 'longitude' => null));
 
         foreach ($locations as $location) {
-            $output->writeln($location->getName());
-            $address = $geocoder->geocode($location->getAddress());
+            try {
+                $address = $geocoder->geocode($location->getAddress());
+            } catch (\Geocoder\Exception\NoResultException $e) {
+                $output->writeln("Can't find coordinates of: " . $location->getAddress());
+                continue;
+            } catch (\Geocoder\Exception\QuotaExceededException $e) {
+                $output->writeln("Google wants your money (quota exceeded)");
+                continue;
+            }
+
+            $output->writeln(sprintf(
+                'Coordinates of %s: %s, %s',
+                $location->getName(),
+                $address->getLatitude(),
+                $address->getLongitude()
+            ));
+
             $location->setLatitude($address->getLatitude());
             $location->setLongitude($address->getLongitude());
             $em->persist($location);
