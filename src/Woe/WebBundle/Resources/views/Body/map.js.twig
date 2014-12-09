@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    function initialize() {
+        var position = {lat: {{ event.location.latitude }}, lng: {{ event.location.longitude }}}
+        var mapOptions = {
+            center: position,
+            zoom: 12
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var infoWindow = new google.maps.InfoWindow();
+
+        {% for nearbyEvent in nearbyEvents %}
+        var marker = new google.maps.Marker({
+            position: {lat: {{ nearbyEvent.location.latitude }}, lng: {{ nearbyEvent.location.longitude }}},
+            map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function (m) {
+            return function () {
+                var contentString = '<div class="event-popup" >{{ include('@WoeWeb/Event/eventCard.html.twig', {'event': nearbyEvent}) }}</div>';
+                infoWindow.setContent(contentString);
+                infoWindow.open(map, m);
+            }
+        })(marker));
+        {% endfor %}
+
+        $('#map-modal').on('shown.bs.modal', function () {
+            var currentCenter = map.getCenter();
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(currentCenter);
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>

@@ -20,7 +20,8 @@ class DefaultController extends Controller
     public function eventAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $event = $em->getRepository('WoeEventBundle:Event')->find($id);
+        $eventRepository = $em->getRepository('WoeEventBundle:Event');
+        $event = $eventRepository->find($id);
 
         if (!$event) {
             throw $this->createNotFoundException('Renginys nerastas');
@@ -43,8 +44,10 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('woe_web_event', array('id' => $id)));
         }
 
+        $events = $eventRepository->findNearbyEvents($event);
         return $this->render('WoeWebBundle:Body:event.html.twig', array(
             'event' => $event,
+            'nearbyEvents' => $events,
             'form'  => $form->createView(),
         ));
     }

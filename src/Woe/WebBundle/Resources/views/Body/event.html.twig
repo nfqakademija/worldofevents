@@ -22,17 +22,24 @@
         </div>
 
         <div class="col-md-5">
-            <div class="event-image">
+            <div class="event-big-image">
                 <img src="{{ event.image }}">
             </div>
             <div class="event-buttons">
                 <a class="btn btn-success event-tickets-button" href="{{ event.sourceUrl }}">Pirkti bilietus</a>
                 <button class="btn btn-primary remind-button">Priminti apie renginį</button>
-                <button class="btn btn-primary map-button">Rodyti žemėlapyje</button>
+                <button type="button" class="btn btn-primary map-button" data-toggle="modal" data-target=".bs-example-modal-lg">Rodyti žemėlapyje</button>
             </div>
             <div class="event-reminder">
                 {{ include('@WoeWeb/Body/form_reminder.html.twig') }}
             </div>
         </div>
+        {{ include('@WoeWeb/Body/mapModal.html.twig') }}
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    {{ include('@WoeWeb/Body/map.js.twig') }}
 {% endblock %}

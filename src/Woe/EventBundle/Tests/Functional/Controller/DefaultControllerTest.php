@@ -24,7 +24,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals(3, $crawler->filter('div.event-element')->count());
+        $this->assertEquals(3, $crawler->filter('div.event-card')->count());
     }
 
     /**
@@ -34,7 +34,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals($expected, $crawler->filter('div.event-element div.event-title a')->eq($n)->text());
+        $this->assertEquals($expected, $crawler->filter('div.event-card div.event-title a')->eq($n)->text());
     }
 
     public function numberedTitlesProvider()
@@ -50,28 +50,28 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals("2014-12-11 17:00", $crawler->filter('.event-element .event-info-date')->text());
+        $this->assertEquals("2014-12-11 17:00", $crawler->filter('.event-card .event-info-date')->text());
     }
 
     public function testIndexPageEventsHaveLocationName()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals("NFQ Akademija, Vilnius", $crawler->filter('.event-element .event-info-place')->text());
+        $this->assertEquals("NFQ Akademija, Vilnius", $crawler->filter('.event-card .event-info-place')->text());
     }
 
     public function testIndexPageEventsHaveMinimumPrice()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals("Nuo 10.00 Lt", $crawler->filter('.event-element .event-info-price')->text());
+        $this->assertEquals("Nuo 10.00 Lt", $crawler->filter('.event-card .event-info-price')->text());
     }
 
     public function testIndexPageEventsHaveLinksToDetails()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals('/event/1', $crawler->filter('.event-element a')->attr('href'));
+        $this->assertEquals('/event/1', $crawler->filter('.event-card a')->attr('href'));
     }
 
     public function testIndexPageHasEventTagsListed()
@@ -180,6 +180,6 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/event/1');
-        $this->assertEquals('image.jpg', $crawler->filter('.event-image > img')->attr('src'));
+        $this->assertEquals('image.jpg', $crawler->filter('.event-big-image > img')->attr('src'));
     }
 }
