@@ -65,4 +65,26 @@ class EventRepository extends EntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+    /**
+     * Find recent and upcoming events by current event's date (+/- 6 hours)
+     *
+     * @param Event $event
+     * @return array
+     */
+    public function findNearbyEvents(Event $event)
+    {
+        $interval = new \DateInterval('PT6H');
+        $from = $event->getDate()->sub($interval);
+        $to = $event->getDate()->add($interval);
+
+        $query = $this->createQueryBuilder('event')
+            ->innerJoin('event.location', 'location')
+            ->where('location.latitude IS NOT NULL')
+            ->andWhere('location.longitude IS NOT NULL')
+            ->andWhere('event.date BETWEEN :from AND :to')
+            ->setParameters(array('from' => $from, 'to' => $to));
+
+        return $query->getQuery()->getResult();
+    }
 }
