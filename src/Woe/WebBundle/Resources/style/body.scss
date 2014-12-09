@@ -23,91 +23,12 @@ $divider-color: #dddddd;
 .element-holder {
     background-color: #F0F0F0;
 
-    .event-element {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        display: inline-block;
-    }
-
-    .event-info {
-        background-color: #eaeaea;
-        width: 331px;
-        height: 190px;
-        border: solid #E3E3E3 1px;
-        .event-image {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    .event-title {
-        height: 45px;
-        line-height: 1.2;
-        width: 100%;
-        padding-bottom: 5px;
-        font-size: 1.2em;
-        color: #1c1c1c;
-
-        a {
-            color: #383838;
-
-            &:hover {
-                color: #000000;
-            }
-        }
-    }
-
-    .event-icons {
-        padding-top: 10px;
-    }
 }
 
 .event-holder {
     padding-bottom: 15px;
     border-radius: 7px 7px 0px 0px;
     background-color: #F3F3F3;
-
-    .event-name {
-        width: 100%;
-        border-bottom: 1px $divider-color solid;
-
-        h1 {
-            font-size: 31px;
-            color: #252525;
-            padding: 0px 0px 7px 0 xp;
-            margin: 0px;
-        }
-    }
-
-    .event-image {
-        border: 2px #D2CACA solid;
-        background-color: ffffff;
-        border-radius: 5px;
-        width: 440px;
-        height: 253px;
-
-        img {
-            width: 100%;
-            height: 100%;
-            border-radius: inherit;
-        }
-
-    }
-
-    .event-description {
-        width: 100%;
-        border-top: 1px $divider-color solid;
-        border-bottom: 1px $divider-color solid;
-
-        .event-description-text {
-            padding: 8px 0px 8px 0px;
-
-            p {
-                padding: 0px;
-                margin: 0px;
-            }
-        }
-    }
 
     #event-info {
         padding-left: 3px;
@@ -175,4 +96,113 @@ $divider-color: #dddddd;
 .event-search {
     width: 500px;
     padding-left: 10px;
+}
+
+.event-name {
+    width: 100%;
+    border-bottom: 1px $divider-color solid;
+
+    h1 {
+        font-size: 31px;
+        color: #252525;
+        margin: 0px;
+    }
+}
+
+.event-icons {
+    padding-top: 10px;
+}
+
+.event-big-image {
+    border-radius: 5px;
+    width: 440px;
+    height: 253px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+    }
+}
+
+.event-description {
+    width: 100%;
+    border-top: 1px $divider-color solid;
+    border-bottom: 1px $divider-color solid;
+
+    .event-description-text {
+        padding: 8px 0px 8px 0px;
+
+        p {
+            padding: 0px;
+            margin: 0px;
+        }
+    }
+}
+
+.event-card {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+
+    .event-title {
+        height: 45px;
+        line-height: 1.2;
+        width: 100%;
+        padding-bottom: 5px;
+        font-size: 1.2em;
+        color: #1c1c1c;
+
+        a {
+            color: #383838;
+
+            &:hover {
+                color: #000000;
+            }
+        }
+    }
+
+    .event-image-block {
+        width: 331px;
+        height: 190px;
+
+        .event-image {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.event-popup .event-card {
+    width: 250px;
+
+    .event-image-block {
+        width: 220px;
+        height: 126px;
+    }
+
+    .event-title {
+        height: initial;
+        padding-bottom: 5px;
+    }
+}
+
+#map-canvas {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#map-modal {
+    .modal-content {
+        height: 90%;
+        border-radius: 0;
+    }
+
+    .modal-dialog {
+        width: 90%;
+        height: 90%;
+        padding: 0;
+    }
 }
