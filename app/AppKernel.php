@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Woe\WebBundle\WoeWebBundle(),
             new Woe\EventBundle\WoeEventBundle(),
-            new Woe\FilterBundle\WoeFilterBundle(),
             new Woe\CrawlerBundle\WoeCrawlerBundle(),
             new Woe\MapperBundle\WoeMapperBundle(),
             new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
