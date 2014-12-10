@@ -25,8 +25,7 @@ class UpdateKeywordsCommand extends ContainerAwareCommand
 
         foreach ($events as $event) {
             $keywords_added = $this->addNewKeywords($event);
-            $tags_added = $this->addNewTags($event);
-            $output->writeln(sprintf("Added %3d keywords and %3d tags to %s", $keywords_added, $tags_added, $event->getTitle()));
+            $output->writeln(sprintf("Added %3d keywords to %s", $keywords_added, $event->getTitle()));
         }
     }
 
@@ -53,41 +52,6 @@ class UpdateKeywordsCommand extends ContainerAwareCommand
             $keyword = $repository->findOrCreate($keyword_name);
             if (!$event->getKeywords()->contains($keyword)) {
                 $event->addKeyword($keyword);
-                $em->persist($keyword);
-                $em->persist($event);
-                $counter++;
-            }
-        }
-
-        $em->flush();
-
-        return $counter;
-    }
-
-    /**
-     * Add new tags to keywords and event
-     *
-     * @param Event $event
-     * @return int $counter number of tags added
-     */
-    protected function addNewTags(Event $event)
-    {
-        $doctrine = $this->getContainer()->get('doctrine');
-        $repository = $doctrine->getRepository('WoeEventBundle:Keyword');
-        $em = $doctrine->getManager();
-
-        $text_normalizer = $this->getContainer()->get('woe_mapper.text_normalizer');
-
-        $counter = 0;
-
-        foreach ($event->getTags() as $tag) {
-            $keyword_name = $text_normalizer->normalize($tag->getName())[0];
-            $keyword = $repository->findOrCreate($keyword_name);
-            if (!$event->getKeywords()->contains($keyword)) {
-                $event->addKeyword($keyword);
-                if (!$event->getTags()->contains($tag)) {
-                    $keyword->addTag($tag);
-                }
                 $em->persist($keyword);
                 $em->persist($event);
                 $counter++;
