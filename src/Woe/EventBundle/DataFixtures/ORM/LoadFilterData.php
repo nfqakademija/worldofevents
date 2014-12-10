@@ -24,6 +24,7 @@ class LoadFilterData extends AbstractFixture implements OrderedFixtureInterface
             $keyword = $this->createKeyword($value, $tag);
 
             $this->addReference('event-tag-' . $i, $tag);
+            $this->addReference('event-keyword-' . $i, $keyword);
 
             $manager->persist($tag);
             $manager->persist($keyword);

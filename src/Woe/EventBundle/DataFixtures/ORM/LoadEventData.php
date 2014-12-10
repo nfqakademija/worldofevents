@@ -12,6 +12,14 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        $this->loadEvent1($manager);
+        $this->loadEvent2($manager);
+        $this->loadEvent3($manager);
+        $manager->flush();
+    }
+
+    protected function loadEvent1(ObjectManager $manager)
+    {
         $event = new Event();
         $event->setTitle("Duis aute irure dolor in reprehenderit");
         $event->setDate(new \DateTime('2014-12-11 17:00'));
@@ -33,6 +41,13 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
             )
         );
 
+        $event->addKeyword($this->getReference('event-keyword-1'));
+
+        $manager->persist($event);
+    }
+
+    public function loadEvent2($manager)
+    {
         $event2 = $this->createMinimalEvent(
             "LIEPSNOJANTIS KALĖDŲ LEDAS 2014",
             new \DateTime("2014-12-25 19:00"),
@@ -43,6 +58,11 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event2->setDescription("a\nb\nc");
         $event2->setInformation("a\nb\nc\nd");
 
+        $manager->persist($event2);
+    }
+
+    public function loadEvent3($manager)
+    {
         $event3 = $this->createMinimalEvent(
             'Andrius Mamontovas. Tas bičas iš "Fojė"',
             new \DateTime("2014-12-26 19:00"),
@@ -51,10 +71,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
 
         $event3->setImage('http://www.bilietai.lt/event-big-photo/22830.png');
 
-        $manager->persist($event);
-        $manager->persist($event2);
         $manager->persist($event3);
-        $manager->flush();
     }
 
     /**

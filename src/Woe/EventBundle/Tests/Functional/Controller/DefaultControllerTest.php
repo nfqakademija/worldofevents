@@ -210,7 +210,7 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/event/1');
         $form = $crawler->filter("form[name=search-form]")->form();
-        $crawler = $client->submit($form, array('q' => 'kaledu'));
+        $crawler = $client->submit($form, array('q' => 'roko'));
 
         $this->assertCount(1, $crawler->filter('.event-card'));
     }
