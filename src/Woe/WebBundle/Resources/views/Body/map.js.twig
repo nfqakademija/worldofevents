@@ -9,26 +9,43 @@
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
         var infoWindow = new google.maps.InfoWindow();
 
-        {% for nearbyEvent in nearbyEvents %}
-        var marker = new google.maps.Marker({
-            position: {lat: {{ nearbyEvent.location.latitude }}, lng: {{ nearbyEvent.location.longitude }}},
-            map: map
-        });
+        var icon = '{{ asset('img/blue-dot.png') }}';
+        var mainMarker = createMarker(map, {{ event.location.latitude }}, {{ event.location.longitude }}, icon);
+        var mainHtml = '<div class="event-popup" >{{ include('@WoeWeb/Event/eventCard.html.twig', {'event': event}) }}</div>';
+        addInfoWindow(map, mainMarker, mainHtml, infoWindow);
 
-        google.maps.event.addListener(marker, 'click', (function (m) {
-            return function () {
-                var contentString = '<div class="event-popup" >{{ include('@WoeWeb/Event/eventCard.html.twig', {'event': nearbyEvent}) }}</div>';
-                infoWindow.setContent(contentString);
-                infoWindow.open(map, m);
-            }
-        })(marker));
+        {% for nearbyEvent in nearbyEvents %}
+            var marker = createMarker(map, {{ nearbyEvent.location.latitude }}, {{ nearbyEvent.location.longitude }});
+            var html = '<div class="event-popup" >{{ include('@WoeWeb/Event/eventCard.html.twig', {'event': nearbyEvent}) }}</div>';
+            addInfoWindow(map, marker, html, infoWindow);
         {% endfor %}
 
         $('#map-modal').on('shown.bs.modal', function () {
             var currentCenter = map.getCenter();
             google.maps.event.trigger(map, 'resize');
             map.setCenter(currentCenter);
+            infoWindow.setContent(mainHtml);
+            infoWindow.open(map, mainMarker);
         });
+    }
+
+    function createMarker(map, lat, lng, icon) {
+        var marker = new google.maps.Marker({
+            position: {lat: lat, lng: lng},
+            map: map,
+            icon: icon || '{{ asset('img/red-dot.png') }}'
+        });
+
+        return marker;
+    }
+
+    function addInfoWindow(map, marker, html, infoWindow) {
+        google.maps.event.addListener(marker, 'click', (function (m) {
+            return function () {
+                infoWindow.setContent(html);
+                infoWindow.open(map, m);
+            }
+        })(marker));
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);

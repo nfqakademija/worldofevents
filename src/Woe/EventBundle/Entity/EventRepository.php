@@ -67,7 +67,8 @@ class EventRepository extends EntityRepository
     }
 
     /**
-     * Find recent and upcoming events by current event's date (+/- 6 hours)
+     * Find recent and upcoming events by current event's date (+/- 12 hours)
+     * not including the event itself
      *
      * @param Event $event
      * @return array
@@ -85,7 +86,8 @@ class EventRepository extends EntityRepository
             ->where('location.latitude IS NOT NULL')
             ->andWhere('location.longitude IS NOT NULL')
             ->andWhere('event.date BETWEEN :from AND :to')
-            ->setParameters(array('from' => $from, 'to' => $to));
+            ->andWhere('event.id != :event_id')
+            ->setParameters(array('from' => $from, 'to' => $to, 'event_id' => $event->getId()));
 
         return $query->getQuery()->getResult();
     }
