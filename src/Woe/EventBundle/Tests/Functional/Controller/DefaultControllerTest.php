@@ -182,4 +182,65 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/event/1');
         $this->assertEquals('image.jpg', $crawler->filter('.event-big-image > img')->attr('src'));
     }
+
+    public function testSubmitingNotificationRedirectsBackToEventPage()
+    {
+        $client = $this->submitNotificationForm(array(
+            'notification[email]' => 'test2@mail.dev',
+            'notification[date]'  => 1,
+        ));
+
+        $this->assertTrue($client->getResponse()->isRedirect());
+    }
+
+    public function testSubmittingNotificationShowsSuccessMessage()
+    {
+        $client = $this->submitNotificationForm(array(
+            'notification[email]' => 'test2@mail.dev',
+            'notification[date]'  => 1,
+        ));
+
+        $crawler = $client->followRedirect();
+
+        $this->assertGreaterThan(0, $crawler->filter('.alert-success')->count());
+    }
+
+    public function testSearchByRegularKeyword()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+        $form = $crawler->filter("form[name=search-form]")->form();
+        $crawler = $client->submit($form, array('q' => 'kaledu'));
+
+        $this->assertCount(1, $crawler->filter('.event-card'));
+    }
+
+    public function testTagPageShowsListOfAssociatedEvents()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/tag/1');
+        $this->assertCount(1, $crawler->filter('.event-card'));
+    }
+
+    public function testTagPageShowsCorrectEvent()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/tag/1');
+        $this->assertEquals("Duis aute irure dolor in reprehenderit", $crawler->filter('.event-card .event-title')->text());
+    }
+
+    /**
+     * @param array $form_parameters
+     * @return \Symfony\Bundle\FrameworkBundle\Client
+     */
+    protected function submitNotificationForm(array $form_parameters)
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/event/1');
+
+        $form = $crawler->selectButton('notification[save]')->form();
+        $client->submit($form, $form_parameters);
+
+        return $client;
+    }
 }
