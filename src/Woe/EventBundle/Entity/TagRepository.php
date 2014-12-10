@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
 class TagRepository extends EntityRepository
 {
     /**
-     * Returns list of random tags with their total count
+     * Returns list of tags with their total count.
      *
      * @param int $limit
      * @return array
@@ -24,7 +24,7 @@ class TagRepository extends EntityRepository
             ->select('tag AS eventTag, COUNT(e.id) AS eventCount, RAND() AS HIDDEN rand')
             ->innerJoin('tag.events', 'e')
             ->groupBy('tag.id')
-            ->orderBy('rand')
+//            ->orderBy('rand')
             ->setMaxResults($limit);
 
         return $query->getQuery()->getResult();
