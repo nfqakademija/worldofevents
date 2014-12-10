@@ -55,7 +55,6 @@ class Search
         $events = empty($normalizedWords) ? $repository->findAllActiveSortedByDate()
                                           : $repository->findByKeywords($normalizedWords);
 
-        $test = $this->filterSearchResultsByDateKeywords($events, $dates);
         return empty($dates) ? $events : $this->filterSearchResultsByDateKeywords($events, $dates);
     }
 
