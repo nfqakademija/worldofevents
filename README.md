@@ -22,6 +22,12 @@
   * `composer install` to install composer dependencies which are defined in composer.json
   * `npm install` to install node packages which are defined in package.json file
   * `bower install` to install bower components which are defined in bower.json file
+  
+## Loading events
+
+  * `php app/console crawler:run` to download event information from data sources
+  * `php app/console mapper:keywords:update` to update search index
+  * `php app/console geocode:update` to update coordinates of event locations
 
 ## Grunt tasks
 
