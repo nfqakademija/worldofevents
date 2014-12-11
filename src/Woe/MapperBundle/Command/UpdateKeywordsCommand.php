@@ -24,8 +24,10 @@ class UpdateKeywordsCommand extends ContainerAwareCommand
             ->getRepository('WoeEventBundle:Event')->findAll();
 
         foreach ($events as $event) {
-            $keywords_added = $this->addNewKeywords($event);
-            $output->writeln(sprintf("Added %3d keywords to %s", $keywords_added, $event->getTitle()));
+            if ($event->getKeywords()->isEmpty()) {
+                $keywords_added = $this->addNewKeywords($event);
+                $output->writeln(sprintf("Added %3d keywords to %s", $keywords_added, $event->getTitle()));
+            }
         }
     }
 
