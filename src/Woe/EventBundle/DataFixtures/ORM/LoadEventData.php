@@ -15,6 +15,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $this->loadEvent1($manager);
         $this->loadEvent2($manager);
         $this->loadEvent3($manager);
+        $this->loadEvent4($manager);
         $manager->flush();
     }
 
@@ -22,7 +23,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
     {
         $event = new Event();
         $event->setTitle("Duis aute irure dolor in reprehenderit");
-        $event->setDate(new \DateTime('2014-12-11 17:00'));
+        $event->setDate(new \DateTime('2020-12-11 17:00'));
         $event->setLocation($this->getReference('event-location'));
         $event->setPriceMin("10.00");
         $event->setPriceMax("20.00");
@@ -48,30 +49,43 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
 
     public function loadEvent2($manager)
     {
-        $event2 = $this->createMinimalEvent(
+        $event = $this->createMinimalEvent(
             "LIEPSNOJANTIS KALĖDŲ LEDAS 2014",
-            new \DateTime("2014-12-25 19:00"),
+            new \DateTime("2020-12-25 19:00"),
             $this->getReference('event-location')
         );
 
-        $event2->setImage('http://www.bilietai.lt/event-big-photo/21512.png');
-        $event2->setDescription("a\nb\nc");
-        $event2->setInformation("a\nb\nc\nd");
+        $event->setImage('http://www.bilietai.lt/event-big-photo/21512.png');
+        $event->setDescription("a\nb\nc");
+        $event->setInformation("a\nb\nc\nd");
 
-        $manager->persist($event2);
+        $manager->persist($event);
     }
 
     public function loadEvent3($manager)
     {
-        $event3 = $this->createMinimalEvent(
+        $event = $this->createMinimalEvent(
             'Andrius Mamontovas. Tas bičas iš "Fojė"',
-            new \DateTime("2014-12-26 19:00"),
+            new \DateTime("2020-12-26 19:00"),
             $this->getReference('event-location')
         );
 
-        $event3->setImage('http://www.bilietai.lt/event-big-photo/22830.png');
+        $event->setImage('http://www.bilietai.lt/event-big-photo/22830.png');
 
-        $manager->persist($event3);
+        $manager->persist($event);
+    }
+
+    public function loadEvent4($manager)
+    {
+        $event = $this->createMinimalEvent(
+            'Event of the Year',
+            new \DateTime("tomorrow +12 hours"),
+            $this->getReference('event-location')
+        );
+
+        $event->setImage('http://www.bilietai.lt/event-big-photo/22830.png');
+
+        $manager->persist($event);
     }
 
     /**

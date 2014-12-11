@@ -24,13 +24,13 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals(3, $crawler->filter('div.event-card')->count());
+        $this->assertEquals(4, $crawler->filter('div.event-card')->count());
     }
 
     /**
      * @dataProvider numberedTitlesProvider
      */
-    public function testIndexPageEventsSortedById($n, $expected)
+    public function testIndexPageEventsSortedByDate($n, $expected)
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
@@ -40,9 +40,9 @@ class DefaultControllerTest extends WebTestCase
     public function numberedTitlesProvider()
     {
         return array(
-            array(0, 'Duis aute irure dolor in reprehenderit'),
-            array(1, 'LIEPSNOJANTIS KALĖDŲ LEDAS 2014'),
-            array(2, 'Andrius Mamontovas. Tas bičas iš "Fojė"')
+            array(1, 'Duis aute irure dolor in reprehenderit'),
+            array(2, 'LIEPSNOJANTIS KALĖDŲ LEDAS 2014'),
+            array(3, 'Andrius Mamontovas. Tas bičas iš "Fojė"')
         );
     }
 
@@ -50,28 +50,28 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals("2014-12-11 17:00", $crawler->filter('.event-card .event-info-date')->text());
+        $this->assertEquals("2020-12-11 17:00", $crawler->filter('.event-card .event-info-date')->eq(1)->text());
     }
 
     public function testIndexPageEventsHaveLocationName()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals("NFQ Akademija, Vilnius", $crawler->filter('.event-card .event-info-place')->text());
+        $this->assertEquals("NFQ Akademija, Vilnius", $crawler->filter('.event-card .event-info-place')->eq(1)->text());
     }
 
     public function testIndexPageEventsHaveMinimumPrice()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals("Nuo 10.00 Lt", $crawler->filter('.event-card .event-info-price')->text());
+        $this->assertEquals("Nuo 10.00 Lt", $crawler->filter('.event-card .event-info-price')->eq(1)->text());
     }
 
     public function testIndexPageEventsHaveLinksToDetails()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals('/event/1', $crawler->filter('.event-card a')->attr('href'));
+        $this->assertEquals('/event/1', $crawler->filter('.event-card .event-title a')->eq(1)->attr('href'));
     }
 
     public function testIndexPageHasEventTagsListed()
@@ -149,7 +149,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/event/1');
-        $expected = "Pradžia: 2014-12-11 17:00";
+        $expected = "Pradžia: 2020-12-11 17:00";
         $this->assertEquals($expected, $crawler->filter('.event-date')->text());
     }
 
@@ -208,9 +208,19 @@ class DefaultControllerTest extends WebTestCase
     public function testSearchByRegularKeyword()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/event/1');
+        $crawler = $client->request('GET', '/');
         $form = $crawler->filter("form[name=search-form]")->form();
         $crawler = $client->submit($form, array('q' => 'roko'));
+
+        $this->assertCount(1, $crawler->filter('.event-card'));
+    }
+
+    public function testSearchByDateKeyword()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $form = $crawler->filter("form[name=search-form]")->form();
+        $crawler = $client->submit($form, array('q' => 'rytoj'));
 
         $this->assertCount(1, $crawler->filter('.event-card'));
     }
