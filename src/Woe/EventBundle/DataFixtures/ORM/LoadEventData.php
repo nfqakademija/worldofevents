@@ -13,9 +13,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $this->loadEvent1($manager);
-        $this->loadEvent2($manager);
-        $this->loadEvent3($manager);
-        $this->loadEvent4($manager);
+        $this->loadBasicEvents($manager);
         $manager->flush();
     }
 
@@ -47,45 +45,47 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($event);
     }
 
-    public function loadEvent2($manager)
+    public function loadBasicEvents($manager)
     {
-        $event = $this->createMinimalEvent(
-            "LIEPSNOJANTIS KALĖDŲ LEDAS 2014",
-            new \DateTime("2020-12-25 19:00"),
-            $this->getReference('event-location')
+        $events = array(
+            array(
+                'title' => "LIEPSNOJANTIS KALĖDŲ LEDAS 2014",
+                'date' => new \DateTime("2020-12-25 19:00"),
+                'location' => $this->getReference('event-location'),
+                'image' => 'http://www.bilietai.lt/event-big-photo/21512.png',
+                'description' => "a\nb\nc",
+                'information' => "a\nb\nc\nd"
+            ),
+            array(
+                'title' => 'Andrius Mamontovas. Tas bičas iš "Fojė"',
+                'date' => new \DateTime("2020-12-26 19:00"),
+                'location' => $this->getReference('event-location'),
+                'image' => 'http://www.bilietai.lt/event-big-photo/22830.png',
+                'description' => null,
+                'information' => null
+            ),
+            array(
+                'title' => 'Event of the Year',
+                'date' => new \DateTime("tomorrow +12 hours"),
+                'location' => $this->getReference('event-location'),
+                'image' => 'http://www.bilietai.lt/event-big-photo/22830.png',
+                'description' => null,
+                'information' => null
+            )
         );
 
-        $event->setImage('http://www.bilietai.lt/event-big-photo/21512.png');
-        $event->setDescription("a\nb\nc");
-        $event->setInformation("a\nb\nc\nd");
+        foreach ($events as $event_data) {
+            $event = $this->createMinimalEvent(
+                $event_data['title'],
+                $event_data['date'],
+                $event_data['location'],
+                $event_data['image'],
+                $event_data['description'],
+                $event_data['information']
+            );
+            $manager->persist($event);
+        }
 
-        $manager->persist($event);
-    }
-
-    public function loadEvent3($manager)
-    {
-        $event = $this->createMinimalEvent(
-            'Andrius Mamontovas. Tas bičas iš "Fojė"',
-            new \DateTime("2020-12-26 19:00"),
-            $this->getReference('event-location')
-        );
-
-        $event->setImage('http://www.bilietai.lt/event-big-photo/22830.png');
-
-        $manager->persist($event);
-    }
-
-    public function loadEvent4($manager)
-    {
-        $event = $this->createMinimalEvent(
-            'Event of the Year',
-            new \DateTime("tomorrow +12 hours"),
-            $this->getReference('event-location')
-        );
-
-        $event->setImage('http://www.bilietai.lt/event-big-photo/22830.png');
-
-        $manager->persist($event);
     }
 
     /**
@@ -94,14 +94,20 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
      * @param $title
      * @param \DateTime $date
      * @param Location $location
+     * @param string|null $image
+     * @param string|null $description
+     * @param string|null $information
      * @return Event
      */
-    protected function createMinimalEvent($title, \DateTime $date, Location $location)
+    protected function createMinimalEvent($title, \DateTime $date, Location $location, $image = null, $description = null, $information = null)
     {
         $event = new Event();
         $event->setTitle($title);
         $event->setDate($date);
         $event->setLocation($location);
+        $event->setImage($image);
+        $event->setDescription($description);
+        $event->setInformation($information);
 
         return $event;
     }
